@@ -45,7 +45,7 @@ call plug#end()
 syntax enable
 
 set shell=/bin/sh
-let s:base_dir = expand('~/home_manager/nvim')
+let s:base_dir = expand('~/.dotfiles/nvim')
 execute 'set runtimepath+=' . fnamemodify(s:base_dir, ':p')
 runtime! conf/*.vim
 runtime! plugins/*.vim

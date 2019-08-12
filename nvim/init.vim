@@ -40,6 +40,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
  " elm
 Plug 'andys8/vim-elm-syntax'
 Plug 'elm-tooling/elm-language-server'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 syntax enable

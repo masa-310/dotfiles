@@ -1,0 +1,53 @@
+{
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.timeout": 5000,
+  "suggest.noselect": true,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.snippetIndicator": "▶",
+  "eslint.filetypes":[
+    "javascript",
+    "javascriptreact",
+    "typescript"
+  ],
+  "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "elm"],
+  "languageserver": {
+    "haskell": {
+      "command": "hie-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+      "requireRootPattern": true,
+      "filetypes": ["hs", "lhs", "haskell"],
+      "initializationOptions": {},
+      "settings": {
+        "languageServerHaskell": {
+          "hlintOn": false,
+          "maxNumberOfProblems": 10,
+          "completionSnippetsOn": true
+        }
+      }
+    },
+    "cquery": {
+      "command": "cquery",
+      "args": ["--log-file=/tmp/cq.log"],
+      "filetypes": ["c", "cpp"],
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/cquery"
+      }
+    },
+    "elmLS": {
+      "command": "elm-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "runtime": "node",
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test"
+      }
+    }
+  }
+}

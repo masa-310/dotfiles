@@ -7,9 +7,9 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.TwoPane
 
-import XMonad.Layout.ManageDocks(avoidStruts)
+import XMonad.Hooks.ManageDocks(avoidStruts)
 
-import Xmonad.Hooks.DynamicLog(DynamicLogPP, sjassenPP)
+import XMonad.Hooks.DynamicLog(dynamicLogWithPP, sjanssenPP, ppOrder)
 
 import XMonad.Util.EZConfig (additionalKeysP)
 
@@ -30,20 +30,18 @@ statusBar = "xmobar"
 logHook_ = dynamicLogWithPP $ sjanssenPP { ppOrder = reverse }
 
 main :: IO()
-main =
+main = do
   modMaskStr <- getEnv "XMONAD_MODMASK"
-  let modMask_ = case modMaskStr of
-    "mod1Mask" -> mod1mask
-    "mod4Mask" -> mod4mask
-    _ -> mod1mask
-  xmonad $ defaultConfig {
+  let modMask_ = modMaskConv modMaskStr
+  xmonad $ (defaultConfig {
     terminal        = terminal_
-    , modMask       = modMask_
+    , modMask       = mod1Mask
     , layoutHook    = layoutHook_
     , startupHook   = startupHook_
     , logHook       = logHook_
-  }
-  `additionalKeysP`
-  [
-    ("M-d", spawn "dmenu_run")
-  ]
+  } `additionalKeysP` [ ("M-d", spawn "dmenu_run") ])
+  where
+    modMaskConv str
+      | str == "mod1Mask" = mod1Mask 
+      | str == "mod4Mask" = mod4Mask 
+      | otherwise = mod1Mask 

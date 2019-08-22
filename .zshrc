@@ -53,4 +53,4 @@ fi
 #}}}
 
 export TERM=rxvt-unicode-256color
-export PATH=~/.local/bin/:/opt/bin/:~/project/HyLaGI/bin/:$PATH
+export PATH=~/.local/bin/:/opt/bin/:~/project/HyLaGI/bin/:~/.npm-global/bin:$PATH

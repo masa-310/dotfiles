@@ -8,10 +8,11 @@
   "eslint.filetypes":[
     "javascript",
     "javascriptreact",
-    "typescript"
+    "typescript",
+    "typesctriptreact"
   ],
   "eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "elm"],
+  "coc.preferences.formatOnSaveFiletypes": ["c", "cpp", "css", "Markdown", "elm"],
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",

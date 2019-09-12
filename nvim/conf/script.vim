@@ -1,7 +1,7 @@
 " my autocmd
 "  typescript
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
-autocmd BufWritePre *.ts,*.tsx call jobstart('npx tsc')
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 
 " my functions
 let nltoggle_on = 0

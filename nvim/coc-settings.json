@@ -5,6 +5,8 @@
   "suggest.minTriggerInputLength": 2,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.snippetIndicator": "▶",
+  "signature.target": "echo",
+  "coc.preferences.hoverTarget": "float",
   "eslint.filetypes":[
     "javascript",
     "javascriptreact",

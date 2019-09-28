@@ -58,7 +58,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
@@ -123,6 +123,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+nnoremap <silent> <space>s  :call CocAction('doHover')<CR>
 
 " coc snippet
 " Use <C-l> for trigger snippet expand.

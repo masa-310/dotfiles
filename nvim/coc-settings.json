@@ -11,7 +11,7 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typesctriptreact"
+    "typescriptreact"
   ],
   "eslint.autoFixOnSave": true,
   "coc.preferences.formatOnSaveFiletypes": ["c", "cpp", "css", "Markdown", "elm"],

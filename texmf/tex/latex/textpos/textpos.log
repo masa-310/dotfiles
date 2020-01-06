@@ -1,0 +1,83 @@
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2019.1.3)  24 JAN 2019 15:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**textpos.ins
+(./textpos.ins
+pLaTeX2e <2016/11/29> (based on LaTeX2e <2017/01/01> patch level 3)
+Babel <3.10> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texmf-dist/tex/latex/base/docstrip.tex
+\blockLevel=\count82
+\emptyLines=\count83
+\processedLines=\count84
+\commentsRemoved=\count85
+\commentsPassed=\count86
+\codeLinesPassed=\count87
+\TotalprocessedLines=\count88
+\TotalcommentsRemoved=\count89
+\TotalcommentsPassed=\count90
+\TotalcodeLinesPassed=\count91
+\NumberOfFiles=\count92
+\inFile=\read1
+\inputcheck=\read2
+\off@0=\count93
+\off@1=\count94
+\off@2=\count95
+\off@3=\count96
+\off@4=\count97
+\off@5=\count98
+\off@6=\count99
+\off@7=\count100
+\off@8=\count101
+\off@9=\count102
+\off@10=\count103
+\off@11=\count104
+\off@12=\count105
+\off@13=\count106
+\off@14=\count107
+\off@15=\count108
+\@maxfiles=\count109
+\@maxoutfiles=\count110
+
+Utility: `docstrip' 2.5e <2014/09/29>
+English documentation    <2014/09/29>
+
+**********************************************************
+* This program converts documented macro-files into fast *
+* loadable files by stripping off (nearly) all comments! *
+**********************************************************
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+
+)
+
+Generating file(s) ./textpos.drv ./textpos.sty ./textpos-example.tex 
+\openout0 = `./textpos.drv'.
+
+\openout1 = `./textpos.sty'.
+
+\openout2 = `./textpos-example.tex'.
+
+
+Processing file textpos.dtx (driver) -> textpos.drv
+                            (package) -> textpos.sty
+                            (example) -> textpos-example.tex
+File textpos.dtx ended by \endinput.
+Lines  processed: 1700
+Comments removed: 1260
+Comments  passed: 29
+Codelines passed: 402
+
+ ) 
+Here is how much of TeX's memory you used:
+ 328 strings out of 495132
+ 3298 string characters out of 6185645
+ 58532 words of memory out of 5000000
+ 3875 multiletter control sequences out of 15000+600000
+ 7511 words of font info for 31 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 11i,0n,15p,146b,140s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.

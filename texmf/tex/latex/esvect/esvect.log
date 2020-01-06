@@ -1,0 +1,217 @@
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2019.5.19)  14 AUG 2019 00:37
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**esvect.ins
+(./esvect.ins
+pLaTeX2e <2016/11/29> (based on LaTeX2e <2017/01/01> patch level 3)
+Babel <3.10> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texmf-dist/tex/latex/base/docstrip.tex
+\blockLevel=\count82
+\emptyLines=\count83
+\processedLines=\count84
+\commentsRemoved=\count85
+\commentsPassed=\count86
+\codeLinesPassed=\count87
+\TotalprocessedLines=\count88
+\TotalcommentsRemoved=\count89
+\TotalcommentsPassed=\count90
+\TotalcodeLinesPassed=\count91
+\NumberOfFiles=\count92
+\inFile=\read1
+\inputcheck=\read2
+\off@0=\count93
+\off@1=\count94
+\off@2=\count95
+\off@3=\count96
+\off@4=\count97
+\off@5=\count98
+\off@6=\count99
+\off@7=\count100
+\off@8=\count101
+\off@9=\count102
+\off@10=\count103
+\off@11=\count104
+\off@12=\count105
+\off@13=\count106
+\off@14=\count107
+\off@15=\count108
+\@maxfiles=\count109
+\@maxoutfiles=\count110
+
+Utility: `docstrip' 2.5e <2014/09/29>
+English documentation    <2014/09/29>
+
+**********************************************************
+* This program converts documented macro-files into fast *
+* loadable files by stripping off (nearly) all comments! *
+**********************************************************
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+
+(./esvect.ins
+File ./esvect.sty already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./esvect.sty 
+\openout0 = `./esvect.sty'.
+
+
+Processing file esvect.dtx (package) -> esvect.sty
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./uesvect.fd already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./uesvect.fd 
+\openout0 = `./uesvect.fd'.
+
+
+Processing file esvect.dtx (fdfile) -> uesvect.fd
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vect5.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vect5.mf 
+\openout0 = `./vect5.mf'.
+
+
+Processing file esvect.dtx (mffilea) -> vect5.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vect6.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vect6.mf 
+\openout0 = `./vect6.mf'.
+
+
+Processing file esvect.dtx (mffileb) -> vect6.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vect7.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vect7.mf 
+\openout0 = `./vect7.mf'.
+
+
+Processing file esvect.dtx (mffilec) -> vect7.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vect8.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vect8.mf 
+\openout0 = `./vect8.mf'.
+
+
+Processing file esvect.dtx (mffiled) -> vect8.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vect9.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vect9.mf 
+\openout0 = `./vect9.mf'.
+
+
+Processing file esvect.dtx (mffilee) -> vect9.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vect10.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vect10.mf 
+\openout0 = `./vect10.mf'.
+
+
+Processing file esvect.dtx (mffilef) -> vect10.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./mathvec.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./mathvec.mf 
+\openout0 = `./mathvec.mf'.
+
+
+Processing file esvect.dtx (mfmath) -> mathvec.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vsymbol.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=y
+
+Generating file(s) ./vsymbol.mf 
+\openout0 = `./vsymbol.mf'.
+
+
+Processing file esvect.dtx (mfsymbol) -> vsymbol.mf
+Lines  processed: 1435
+Comments removed: 184
+Comments  passed: 4
+Codelines passed: 1223
+
+File ./vecsym.mf already exists on the system.
+Overwrite it? [y/n]
+\answer=yy
+Not generating file ./vecsym.mf
+
+)
+Overall statistics:
+Files  processed: 10
+Lines  processed: 14350
+Comments removed: 1840
+Comments  passed: 40
+Codelines passed: 12230
+ ) ) 
+Here is how much of TeX's memory you used:
+ 396 strings out of 495132
+ 3888 string characters out of 6185644
+ 58663 words of memory out of 5000000
+ 3932 multiletter control sequences out of 15000+600000
+ 7511 words of font info for 31 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 15i,0n,15p,214b,141s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.

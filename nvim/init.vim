@@ -43,6 +43,8 @@ Plug 'elm-tooling/elm-language-server'
 Plug 'jparise/vim-graphql'
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'lervag/vimtex'
 call plug#end()
 
 syntax enable

@@ -1,0 +1,48 @@
+
+Textpos: absolute positioning of text on the LaTeX page
+-------------------------------------------------------
+
+Version 1.8, 2016 June 7
+
+This package facilitates placing boxes at absolute positions on the
+LaTeX page.  There are several reasons why this might be useful, but
+the main one (or at least my motivating one) is to help produce a
+large-format conference poster.
+
+This package provides a single environment, plus a starred variant,
+which contains the text (or graphics, or table, or whatever) which is
+to be placed on the page, and which specifies where it is to be
+placed.  The environment is accompanied by various configuration
+commands.
+
+For the change history, see textpos.html.
+
+Textpos has a home page at <http://purl.org/nxg/dist/textpos>.
+The source is hosted at bitbucket: <https://bitbucket.org/nxg/textpos>,
+and there is an issues list there, for bug reports.
+
+
+Installation
+------------
+
+Download or find the file textpos.sty.  Install textpos.sty somewhere
+LaTeX will find it (see <http://www.tex.ac.uk/cgi-bin/texfaq2html?label=inst-wlcf>).
+
+This package requires the services of Martin Schroeder's package
+everyshi.  You will need to download this package from CTAN first.  See
+<http://www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/ms/>
+or one of the other CTAN hosts.
+
+Licence
+-------
+
+This software is copyright, 1999, 2001-03, 2005-7, 2009-12, 2014-16., Norman Gray.
+It is released under the terms of the [LaTeX Project Public License][lppl],
+which is included in the file LICENCE.
+
+
+
+Norman Gray  
+http://nxg.me.uk
+
+[lppl]: http://www.latex-project.org/lppl.txt

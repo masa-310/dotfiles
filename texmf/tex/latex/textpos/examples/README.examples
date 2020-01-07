@@ -1,0 +1,11 @@
+The t?.tex files in this directory are intended as regression tests,
+rather than strictly as examples.  They nonetheless serve to illustrate
+some of what textpos can do.
+
+Not all of them actually work, as regression tests, right now, but
+this is because when comparing binary formats such as .dvi files,
+it's not always completely obvious what counts as a significant
+change.  Any comments and suggestions would be welcome.
+
+Norman
+2006 September 2

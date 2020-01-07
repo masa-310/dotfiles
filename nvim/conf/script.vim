@@ -24,3 +24,11 @@ endfunction
 " my commands
 command! NLToggle call NLToggle()
 command! -nargs=1 GenerateID call GenerateID(<f-args>)
+
+" cquery
+" http://kutimoti.hatenablog.com/entry/2018/06/09/165225
+function! MakeCquery()
+  let temp = expand('%:p')
+  let dir = expand('%:p:h')
+  echo system('echo ''[{"directory": "' . dir . '" ,"command": "clang  ' . temp . ' -std=c++11","file": "' . temp . '"}]'' > compile_commands.json')
+endfunction

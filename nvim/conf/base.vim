@@ -46,5 +46,3 @@ set hlsearch " hilight
 " buffer
 set hidden "enable us to change buffer without saving
 
-" syntaxの最大
-set synmaxcol=200

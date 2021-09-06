@@ -23,7 +23,7 @@ set writebackup
 set scrolloff=4
 
 " clipboard
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamedplus
 
 " decoration
 set number
@@ -46,3 +46,6 @@ set hlsearch " hilight
 " buffer
 set hidden "enable us to change buffer without saving
 
+
+" rustのcindentを消す
+autocmd FileType rust setlocal nocindent

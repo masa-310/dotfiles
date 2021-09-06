@@ -1,4 +1,5 @@
 {
+  "python.jediEnabled": false,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.timeout": 5000,
   "suggest.noselect": true,
@@ -14,14 +15,16 @@
     "typescriptreact"
   ],
   "eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnSaveFiletypes": ["c", "cpp", "css", "Markdown", "elm"],
+  "typescript.suggest.autoImports": true,
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go"],
+  "html.format.indentInnerHtml": true,
   "languageserver": {
     "haskell": {
-      "command": "hie-wrapper",
+      "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
-      "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
       "requireRootPattern": true,
-      "filetypes": ["hs", "lhs", "haskell"],
+      "filetypes": ["hs", "lhs", "haskell", "lhaskell"],
       "initializationOptions": {},
       "settings": {
         "languageServerHaskell": {
@@ -31,13 +34,13 @@
         }
       }
     },
-    "cquery": {
-      "command": "cquery",
-      "args": ["--log-file=/tmp/cq.log"],
+    "ccls": {
+      "command": "ccls",
+      "args": ["--log-file=/tmp/ccls.log"],
       "filetypes": ["c", "cpp"],
       "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
       "initializationOptions": {
-        "cacheDirectory": "/tmp/cquery"
+        "cacheDirectory": "/tmp/ccls"
       }
     },
     "elmLS": {
@@ -49,7 +52,21 @@
         "runtime": "node",
         "elmPath": "elm",
         "elmFormatPath": "elm-format",
-        "elmTestPath": "elm-test"
+        "elmTestPath": "elm-test",
+        "elmAnalyseTrigger": "change"
+      }
+    },
+     "purescript": {
+      "command": "purescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["purescript"],
+      "trace.server": "off",
+      "rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"],
+      "settings": {
+        "purescript": {
+          "addSpagoSources": true,
+          "addNpmPath": true
+        }
       }
     }
   }

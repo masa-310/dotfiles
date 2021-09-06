@@ -42,9 +42,18 @@ Plug 'andys8/vim-elm-syntax'
 Plug 'elm-tooling/elm-language-server'
 Plug 'jparise/vim-graphql'
 
+" purescript syntax highlight
+Plug 'raichoo/purescript-vim'
+
 Plug 'tpope/vim-fugitive'
 
 Plug 'lervag/vimtex'
+
+Plug 'nikvdp/ejs-syntax'
+
+Plug 'sirtaj/vim-openscad'
+
+Plug 'kassio/neoterm'
 call plug#end()
 
 syntax enable

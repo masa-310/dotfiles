@@ -13,8 +13,8 @@ Plug 'SirVer/ultisnips'
 "  Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/vimproc'
 "elixir
 Plug 'elixir-editors/vim-elixir'
@@ -58,7 +58,7 @@ call plug#end()
 
 syntax enable
 
-set shell=/bin/sh
+set shell=/usr/bin/zsh
 let s:base_dir = expand('~/.dotfiles/nvim')
 execute 'set runtimepath+=' . fnamemodify(s:base_dir, ':p')
 runtime! conf/*.vim

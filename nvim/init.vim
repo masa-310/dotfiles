@@ -13,8 +13,8 @@ Plug 'SirVer/ultisnips'
 "  Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/vimproc'
 "elixir
 Plug 'elixir-editors/vim-elixir'
@@ -54,6 +54,9 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'sirtaj/vim-openscad'
 
 Plug 'kassio/neoterm'
+Plug 'tyru/open-browser.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'aklt/plantuml-syntax'
 call plug#end()
 
 syntax enable

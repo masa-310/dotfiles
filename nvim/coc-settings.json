@@ -16,7 +16,7 @@
   ],
   "eslint.autoFixOnSave": true,
   "typescript.suggest.autoImports": true,
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go"],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust"],
   "html.format.indentInnerHtml": true,
   "languageserver": {
     "haskell": {

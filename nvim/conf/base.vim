@@ -46,6 +46,8 @@ set hlsearch " hilight
 " buffer
 set hidden "enable us to change buffer without saving
 
+" set spell
+" set spelllang=en_us
 
 " rustのcindentを消す
 autocmd FileType rust setlocal nocindent

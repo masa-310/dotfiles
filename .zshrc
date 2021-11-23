@@ -53,4 +53,20 @@ fi
 #}}}
 
 export TERM=rxvt-unicode-256color
-export PATH=~/.local/bin/:/opt/bin/:~/project/HyLaGI/bin/:~/.npm-global/bin:$PATH
+
+# direnv
+eval "$(direnv hook ${SHELL})"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+# Go
+export GOPATH=${HOME}/go
+export GOBIN=${GOPATH}/bin
+export PATH=$PATH:${GOBIN}
+#android-java
+export JAVA_HOME=/opt/android-studio/jre
+export PATH=$JAVA_HOME/bin:$PATH

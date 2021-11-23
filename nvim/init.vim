@@ -54,11 +54,14 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'sirtaj/vim-openscad'
 
 Plug 'kassio/neoterm'
+Plug 'tyru/open-browser.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'aklt/plantuml-syntax'
 call plug#end()
 
 syntax enable
 
-set shell=/bin/sh
+set shell=/usr/bin/zsh
 let s:base_dir = expand('~/.dotfiles/nvim')
 execute 'set runtimepath+=' . fnamemodify(s:base_dir, ':p')
 runtime! conf/*.vim

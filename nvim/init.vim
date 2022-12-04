@@ -4,6 +4,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 "  Plug 'jistr/vim-nerdtree-tabs'
 Plug 'alvan/vim-closetag'
 "  Plug 'Shougo/neosnippet'
@@ -58,6 +59,10 @@ Plug 'tyru/open-browser.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'aklt/plantuml-syntax'
 Plug 'posva/vim-vue'
+Plug 'udalov/kotlin-vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'whonore/Coqtail'
+
 call plug#end()
 
 syntax enable

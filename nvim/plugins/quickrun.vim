@@ -1,4 +1,4 @@
-nnoremap <silent><C-i> :QuickRun <in.txt<CR>
+nnoremap <C-u> :QuickRun<in.txt<CR>
 
 let g:quickrun_config = {
 \ '_' : {

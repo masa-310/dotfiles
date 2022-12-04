@@ -17,7 +17,7 @@
   ],
   "eslint.autoFixOnSave": true,
   "typescript.suggest.autoImports": true,
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust", "vue"],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust", "vue", "kotlin", "scala"],
   "html.format.indentInnerHtml": true,
   "javascript.validate.enable": false,
   "languageserver": {
@@ -70,7 +70,17 @@
           "addNpmPath": true
         }
       }
-    }
+    },
+		"terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
   },
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
 }

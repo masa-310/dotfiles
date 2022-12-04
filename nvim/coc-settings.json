@@ -12,12 +12,14 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "vue"
   ],
   "eslint.autoFixOnSave": true,
   "typescript.suggest.autoImports": true,
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "typescript", "typescriptreact", "go", "rust", "vue", "kotlin", "scala"],
   "html.format.indentInnerHtml": true,
+  "javascript.validate.enable": false,
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
@@ -68,6 +70,16 @@
           "addNpmPath": true
         }
       }
-    }
+    },
+		"terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
   }
 }

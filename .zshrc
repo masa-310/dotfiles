@@ -57,6 +57,7 @@ export TERM=rxvt-unicode-256color
 # direnv
 eval "$(direnv hook ${SHELL})"
 export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
@@ -70,3 +71,5 @@ export PATH=$PATH:${GOBIN}
 #android-java
 export JAVA_HOME=/opt/android-studio/jre
 export PATH=$JAVA_HOME/bin:$PATH
+
+if [ -e /home/masashi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/masashi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

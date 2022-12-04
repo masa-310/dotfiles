@@ -1,5 +1,5 @@
 Config {
-  font        = "xft:Dejavu\ Sans\ Mono:alias=true:size=10:hinting=true,xft:Symbola,xfg:Noto\ Color\ Emoji"
+  font        = "xft:Dejavu\ Sans\ Mono:alias=true:size=11:hinting=true,xft:Symbola,xfg:Noto\ Color\ Emoji"
   bgColor     = "black",
   fgColor     = "white",
   position    = Top,

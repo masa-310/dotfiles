@@ -55,8 +55,9 @@ Plug 'sirtaj/vim-openscad'
 
 Plug 'kassio/neoterm'
 Plug 'tyru/open-browser.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'aklt/plantuml-syntax'
+Plug 'posva/vim-vue'
 call plug#end()
 
 syntax enable

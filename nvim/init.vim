@@ -1,4 +1,4 @@
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin()
 " Add or remove your plugins here like this:
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
@@ -67,8 +67,8 @@ call plug#end()
 
 syntax enable
 
-set shell=/usr/bin/zsh
-let s:base_dir = expand('~/.dotfiles/nvim')
-execute 'set runtimepath+=' . fnamemodify(s:base_dir, ':p')
+" set shell=/usr/bin/zsh
+" let s:base_dir = expand('~/.dotfiles/nvim')
+" execute 'set runtimepath+=' . fnamemodify(s:base_dir, ':p')
 runtime! conf/*.vim
 runtime! plugins/*.vim

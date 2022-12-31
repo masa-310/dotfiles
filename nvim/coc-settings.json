@@ -17,7 +17,7 @@
   ],
   "eslint.autoFixOnSave": true,
   "typescript.suggest.autoImports": true,
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust", "vue", "kotlin", "scala"],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust", "vue", "kotlin", "scala", "haskell"],
   "html.format.indentInnerHtml": true,
   "javascript.validate.enable": false,
   "languageserver": {
@@ -71,16 +71,22 @@
         }
       }
     },
-		"terraform": {
-			"command": "terraform-ls",
-			"args": ["serve"],
-			"filetypes": [
-				"terraform",
-				"tf"
-			],
-			"initializationOptions": {},
-			"settings": {}
-		}
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    }
   },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd"
+
 }

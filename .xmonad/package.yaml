@@ -1,0 +1,42 @@
+name:                xmonad-config
+version:             0.1.0.0
+github:              "masa-310/xmonad-config"
+license:             BSD3
+author:              "Masashi SATO"
+maintainer:          "gmasa.310@gmail.com"
+copyright:           "2020 Masashi SATO"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/masa-310/xmonad-config#readme>
+
+library:
+  source-dirs:
+    - src
+
+dependencies:
+- base >= 4.7 && < 5
+- xmonad == 0.17.1
+- xmonad-contrib
+- time
+- data-default-class
+
+executables:
+  xmonad-config:
+    main:                xmonad.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - xmonad-config

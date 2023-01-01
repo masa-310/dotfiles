@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd ~/.xmonad
+stack build
+stack install
+mv ~/.local/bin/xmonad-config "$1"

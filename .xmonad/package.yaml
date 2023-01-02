@@ -29,6 +29,7 @@ dependencies:
 - xmonad-contrib
 - time
 - data-default-class
+- containers
 
 executables:
   xmonad-config:

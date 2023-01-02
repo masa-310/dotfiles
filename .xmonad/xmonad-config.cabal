@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 32bbe311a999832fe130562e60d807003fdb2826e860f731681bab6e835bb5c6
+-- hash: c1e0f0853e229c2414b48a41f04b142967603c1cf8df9c51f781143d02571476
 
 name:           xmonad-config
 version:        0.1.0.0
@@ -15,7 +15,6 @@ author:         Masashi SATO
 maintainer:     gmasa.310@gmail.com
 copyright:      2020 Masashi SATO
 license:        BSD3
-license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
@@ -28,7 +27,10 @@ source-repository head
 library
   exposed-modules:
       Config
+      Keymap
+      Layout
       Polybar
+      StartupHook
       StatusBarPP
   other-modules:
       Paths_xmonad_config
@@ -36,6 +38,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , containers
     , data-default-class
     , time
     , xmonad ==0.17.1
@@ -51,6 +54,7 @@ executable xmonad-config
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , data-default-class
     , time
     , xmonad ==0.17.1

@@ -1,7 +1,7 @@
-module Config (mkConfigByHost, getTerminal, getPromptConf, getProjects, getFont, getModMask) where
+module Config (MyConfig, mkConfigByHost, getTerminal, getPromptConf, getProjects, getFont, getModMask) where
 
 import Data.Default.Class
-import XMonad (KeyMask, mod4Mask, xK_Tab, xK_grave)
+import XMonad (KeyMask, mod1Mask, mod4Mask, xK_Tab, xK_grave)
 import XMonad.Actions.DynamicProjects (Project (..))
 import XMonad.Prompt as Prompt
 import XMonad.Prompt.FuzzyMatch (fuzzyMatch)
@@ -16,10 +16,18 @@ data Config = Config
     modMask :: KeyMask
   }
 
+type MyConfig = Config
+
 defaultFont = "xft:DejaVu Sans Mono:alias=true:size=11:hinting=true,xft:Symbola,xft:Noto Color Emoji"
 
 ninjinConfig :: Config
 ninjinConfig = def
+
+pandaConfig :: Config
+pandaConfig =
+  def
+    { modMask = mod1Mask
+    }
 
 instance Default Config where
   def =
@@ -65,6 +73,7 @@ mkConfigByHost :: HostName -> Config
 mkConfigByHost hostName =
   case hostName of
     "ninjin" -> ninjinConfig
+    "panda" -> pandaConfig
     _ -> ninjinConfig
 
 getTerminal :: Config -> String

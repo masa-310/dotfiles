@@ -1,6 +1,7 @@
 # https://wiki.archlinux.jp/index.php/Alacritty
 
 font:
+  size: 8
   normal:
     family: Inconsolata Nerd Font Mono
     style: Regular

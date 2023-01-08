@@ -2,18 +2,22 @@ command_timeout   = 3000
 
 format = """
 $status $all
-$shell$character """
+$shell$character"""
+
 right_format = """$git"""
 
 [character]
 disabled = false
-success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+success_symbol = ' [](bold green)'
+error_symbol = '[ ](bold red)'
 
 [status]
 disabled = false
 symbol = '🤯'
 success_symbol = '🙂'
+not_found_symbol = '🧐'
+sigint_symbol = '🫠'
+not_executable_symbol = '🤐'
 format = '$symbol'
 map_symbol = true
 

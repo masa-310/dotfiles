@@ -6,7 +6,7 @@ $shell$character"""
 
 [fill]
 disabled = false
-symbol = ''
+symbol = ' '
 
 [character]
 disabled = false

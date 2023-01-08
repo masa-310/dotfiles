@@ -1,8 +1,21 @@
-format = """
-[┌─────────────────────┤ ](bold green)$all
-[├───────┤ ](bold green)$directory
-[└ ](bold green)$shell$character"""
 command_timeout   = 3000
+
+format = """
+$status $all
+$shell$character """
+right_format = """$git"""
+
+[character]
+disabled = false
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
+
+[status]
+disabled = false
+symbol = '🤯'
+success_symbol = '🙂'
+format = '$symbol'
+map_symbol = true
 
 [directory]
 truncation_length = 10

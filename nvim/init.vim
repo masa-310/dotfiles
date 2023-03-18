@@ -63,6 +63,10 @@ Plug 'udalov/kotlin-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'whonore/Coqtail'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+
 call plug#end()
 
 syntax enable

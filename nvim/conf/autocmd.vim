@@ -2,4 +2,4 @@
 autocmd FileType rust setlocal nocindent
 
 " scala call build-import
-autocmd FileType scala call CocAction("runCommand", "build-import")
+autocmd BufReadPost scala call CocActionAsync("runCommand", "build-import")

@@ -62,6 +62,11 @@ Plug 'posva/vim-vue'
 Plug 'udalov/kotlin-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'whonore/Coqtail'
+Plug 'scalameta/nvim-metals'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
 

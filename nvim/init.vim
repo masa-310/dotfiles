@@ -1,9 +1,9 @@
 call plug#begin()
 " Add or remove your plugins here like this:
-Plug 'Shougo/denite.nvim'
-Plug 'Shougo/neomru.vim'
+" Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/neomru.vim'
 Plug 'thinca/vim-quickrun'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "  Plug 'jistr/vim-nerdtree-tabs'
 Plug 'alvan/vim-closetag'

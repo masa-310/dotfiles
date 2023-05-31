@@ -26,7 +26,7 @@
         flake = pkgs.xmonad-config-project.flake {};
       in flake // {
         legacyPackages = pkgs;
-        package.default = flake.packages."xmonad-config:exe:xmonad-config";
+        packages.x86_64-linux.default = flake.packages."xmonad-config:exe:xmonad-config";
       });
 
   # --- Flake Local Nix Configuration ----------------------------

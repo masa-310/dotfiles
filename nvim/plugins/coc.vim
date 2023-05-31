@@ -123,7 +123,6 @@ endif
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
@@ -163,3 +162,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 hi CocMenuSel ctermbg=237 guibg=#13354A
 
 autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx
+
+" CocExplore
+nmap <silent><C-e> :CocCommand explorer<CR>

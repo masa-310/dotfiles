@@ -7,7 +7,7 @@ let g:quickrun_config = {
 \   'hook/time/enable' : 1,
 \ },
 \ 'tex' : {
-\   'command' : 'platex',
+\   'command' : 'uplatex',
 \   'exec' : ['%c --kanji=utf8 -output-directory %s:h %s', '%c --kanji=utf8 -output-directory %s:h %s', 'dvipdfmx -d 5 -o %s:r.pdf %s:r.dvi', 'nohup apvlv %s:r.pdf &'],
 \   'hook/sweep/files' : [
 \     '%S:p:r.aux',

@@ -51,3 +51,6 @@ set hidden "enable us to change buffer without saving
 
 " rustのcindentを消す
 autocmd FileType rust setlocal nocindent
+
+" resolve monorepo
+au FileType vue let b:coc_root_patterns = ['.git']

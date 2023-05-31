@@ -15,9 +15,8 @@
     "typescriptreact",
     "vue"
   ],
-  "eslint.autoFixOnSave": true,
   "typescript.suggest.autoImports": true,
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust", "vue", "kotlin", "scala", "haskell"],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "scss", "c", "cpp", "css", "Markdown", "elm", "javascript", "javascriptreact", "typescript", "typescriptreact", "go", "rust", "kotlin", "scala", "haskell"],
   "html.format.indentInnerHtml": true,
   "javascript.validate.enable": false,
   "languageserver": {

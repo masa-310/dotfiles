@@ -1,8 +1,27 @@
-format = """
-[┌─────────────────────┤ ](bold green)$all
-[├───────┤ ](bold green)$directory
-[└ ](bold green)$shell$character"""
 command_timeout   = 3000
+
+format = """
+$status $all $fill $git_branch$git_commit$git_state$git_metrics$git_status
+$shell$character"""
+
+[fill]
+disabled = false
+symbol = ' '
+
+[character]
+disabled = false
+success_symbol = ' [](bold green)'
+error_symbol = ' [](bold red)'
+
+[status]
+disabled = false
+symbol = '🤯'
+success_symbol = '🙂'
+not_found_symbol = '🧐'
+sigint_symbol = '🫠'
+not_executable_symbol = '🤐'
+format = '$symbol'
+map_symbol = true
 
 [directory]
 truncation_length = 10

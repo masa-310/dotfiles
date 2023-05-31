@@ -114,3 +114,11 @@ bindkey '^K' autosuggest-execute
 znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+alias g='git'
+alias d='docker'
+alias dc='docker compose'
+alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g L='| less'

@@ -1,6 +1,11 @@
 filetype plugin indent on
+syntax enable
 syntax on
 syntax enable
+
+" set shell=/usr/bin/zsh
+" let s:base_dir = expand('~/.dotfiles/nvim')
+" execute 'set runtimepath+=' . fnamemodify(s:base_dir, ':p')
 
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
@@ -48,7 +53,7 @@ set hidden "enable us to change buffer without saving
 
 " set spell
 " set spelllang=en_us
-
+"
 " rustのcindentを消す
 autocmd FileType rust setlocal nocindent
 

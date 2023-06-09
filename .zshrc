@@ -122,3 +122,6 @@ alias -g G='| grep'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g L='| less'
+
+# Alt-c
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"

@@ -1,7 +1,7 @@
-nmap <C-f> :Files
-nmap <C-h> :History
-nmap <C-b> :Buffers
-nmap <C-j> :Rg
+nmap <C-f> :Files<Enter>
+nmap <C-h> :History<Enter>
+nmap <C-b> :Buffers<Enter>
+nmap <C-j> :Rg<Enter>
 
 " https://stackoverflow.com/questions/61865932/how-to-get-fzf-vim-ignore-node-modules-and-git-folders
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'

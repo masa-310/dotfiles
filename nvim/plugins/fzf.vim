@@ -3,7 +3,7 @@ nmap <C-h> :History
 nmap <C-b> :Buffers
 nmap <C-j> :Rg
 
-# https://stackoverflow.com/questions/61865932/how-to-get-fzf-vim-ignore-node-modules-and-git-folders
+" https://stackoverflow.com/questions/61865932/how-to-get-fzf-vim-ignore-node-modules-and-git-folders
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)
 command! -bang -nargs=* Rg

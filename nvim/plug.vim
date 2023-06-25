@@ -68,6 +68,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'github/copilot.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'rgroli/other.nvim'
 
 call plug#end()
 

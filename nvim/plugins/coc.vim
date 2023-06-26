@@ -47,10 +47,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -165,3 +165,26 @@ autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx
 
 " CocExplore
 nmap <silent><C-e> :CocCommand explorer<CR>
+
+
+
+" define a function to open a floating window
+function! s:float(file) abort
+  let bufnr = bufadd(a:file)
+  let curbufnr = bufnr(expand('%'))
+  let winconf = {
+    \   'relative': 'editor',
+    \   'border': 'rounded',
+    \   'width': nvim_win_get_width(0)-4,
+    \   'height': nvim_win_get_height(0)-4,
+    \   'row': 0, 'col': 0,
+    \   'focusable': v:false
+    \ }
+  call nvim_open_win(bufnr, v:true, winconf)
+endfunction
+
+command -nargs=+ OpenFloatWindow call s:float(<f-args>)
+nmap <silent> gd :call CocAction("jumpDefinition", "OpenFloatWindow")<CR>
+nmap <silent> gy :call CocAction("jumpTypeDefinition", "OpenFloatWindow")<CR>
+nmap <silent> gi :call CocAction("jumpImplementation", "OpenFloatWindow")<CR>
+nmap <silent> gr :call CocAction("jumpReferences", "OpenFloatWindow")<CR>

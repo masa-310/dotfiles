@@ -47,10 +47,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -184,7 +184,7 @@ function! s:float(file) abort
 endfunction
 
 command -nargs=+ OpenFloatWindow call s:float(<f-args>)
-nmap <silent> gd :call CocAction("jumpDefinition", "OpenFloatWindow")<CR>
-nmap <silent> gy :call CocAction("jumpTypeDefinition", "OpenFloatWindow")<CR>
-nmap <silent> gi :call CocAction("jumpImplementation", "OpenFloatWindow")<CR>
-nmap <silent> gr :call CocAction("jumpReferences", "OpenFloatWindow")<CR>
+nmap <silent> gwd :call CocAction("jumpDefinition", "OpenFloatWindow")<CR>
+nmap <silent> gwy :call CocAction("jumpTypeDefinition", "OpenFloatWindow")<CR>
+nmap <silent> gwi :call CocAction("jumpImplementation", "OpenFloatWindow")<CR>
+nmap <silent> gwr :call CocAction("jumpReferences", "OpenFloatWindow")<CR>

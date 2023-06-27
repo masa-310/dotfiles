@@ -9,8 +9,11 @@ Plug 'thinca/vim-quickrun'
 Plug 'alvan/vim-closetag'
 "  Plug 'Shougo/neosnippet'
 "  Plug 'Shougo/neosnippet-snippets'
-"  Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.2.1', 'do': 'make install_jsregexp'}
+" Replace <CurrentMajor> by the latest released major (first number of latest release)
+
+" Plug 'SirVer/ultisnips'
 "  Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'

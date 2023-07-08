@@ -108,11 +108,11 @@ znap source zsh-users/zsh-syntax-highlighting
 
 #### auto suggest ###
 znap source zsh-users/zsh-autosuggestions
-bindkey '^K' autosuggest-execute
+# bindkey '^K' autosuggest-execute
 
 #### syntax auto complete
-znap source zsh-users/zsh-syntax-highlighting
-znap source marlonrichert/zsh-autocomplete
+# znap source marlonrichert/zsh-autocomplete
+#
 export PATH="$HOME/.tfenv/bin:$PATH"
 
 alias g='git'

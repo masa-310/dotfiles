@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = 'Cobalt Neon'
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.front_end = "OpenGL"
 config.font = wezterm.font 'Inconsolata Nerd Font Mono'
 config.hide_tab_bar_if_only_one_tab = true

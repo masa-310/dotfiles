@@ -72,6 +72,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'github/copilot.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'rgroli/other.nvim'
+Plug 'tjdevries/colorbuddy.nvim'
+Plug 'lalitmee/cobalt2.nvim'
 
 call plug#end()
 

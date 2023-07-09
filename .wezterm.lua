@@ -14,6 +14,7 @@ config.color_scheme = 'Cobalt Neon'
 config.window_background_opacity = 0.95
 config.front_end = "OpenGL"
 config.font = wezterm.font 'Inconsolata Nerd Font Mono'
+config.font_size = 11.0
 config.hide_tab_bar_if_only_one_tab = true
 
 

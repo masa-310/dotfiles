@@ -10,7 +10,12 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.color_scheme = 'duskfox'
+config.color_scheme = 'Cobalt Neon'
+config.window_background_opacity = 0.9
+config.front_end = "OpenGL"
+config.font = wezterm.font 'Inconsolata Nerd Font Mono'
+config.hide_tab_bar_if_only_one_tab = true
+
 
 -- and finally, return the configuration to wezterm
 return config

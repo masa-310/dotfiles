@@ -15,7 +15,12 @@ set fileformats=unix,dos,mac
 filetype plugin indent on
 
 " colorscheme
-colorscheme molokai
+" colorscheme molokai
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight Folded guibg=NONE ctermbg=NONe
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
 
 "viminfo, swap and other files for persistent
 set viminfo+=n/var/tmp/vim/viminfo

@@ -15,7 +15,7 @@ set fileformats=unix,dos,mac
 filetype plugin indent on
 
 " colorscheme
-" colorscheme molokai
+colorscheme molokai
 highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText guibg=NONE ctermbg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE

@@ -153,7 +153,47 @@ require("lazy").setup({
           end,
         })
       end
-    }
+    },
+    {"mhartington/formatter.nvim",
+        config = function()
+          local util = require "formatter.util"
+          local prettier = {
+            function()
+              return {
+                exe = "prettier",
+                args = {"--stdin-filepath",  util.escape_path(util.get_current_buffer_file_path())},
+                stdin = true
+              }
+            end
+          }
+          require('formatter').setup({
+            logging = true,
+            filetype = {
+              javascript = {
+                prettier
+              },
+              javascriptreact = {
+                prettier
+              },
+              typescript = {
+                prettier
+              },
+              typescriptreact = {
+                prettier
+              },
+              go = {
+                function()
+                  return {
+                    exe = "gofmt",
+                    args = {"-w", util.escape_path(util.get_current_buffer_file_path())},
+                    stdin = false
+                  }
+                end
+              },
+            }
+          })
+        end
+      }
 }, {
   performance = {
     rtp = {

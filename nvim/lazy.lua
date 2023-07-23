@@ -50,6 +50,7 @@ require("lazy").setup({
               "cssls",
               "jsonls",
               "gopls",
+              "golangci_lint_ls",
               "graphql",
               -- "luals",
               "tsserver",
@@ -69,6 +70,7 @@ require("lazy").setup({
       config = function()
         local lspconfig = require("lspconfig")
         lspconfig.tsserver.setup{}
+        lspconfig.eslint.setup{}
         lspconfig.gopls.setup{}
         lspconfig.elmls.setup{}
 
@@ -138,12 +140,12 @@ require("lazy").setup({
           javascriptreact = {'eslint'},
           typescript = {'eslint'},
           typescriptreact = {'eslint'},
-          lua = {'luacheck'},
+          -- lua = {'luacheck'},
           go = {'golangcilint'},
-          yaml = {'yamllint'},
-          json = {'jsonlint'},
-          markdown = {'markdownlint'},
-          nix = {'nix'},
+          -- yaml = {'yamllint'},
+          -- json = {'jsonlint'},
+          -- markdown = {'markdownlint'},
+          -- nix = {'nix'},
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
           callback = function()

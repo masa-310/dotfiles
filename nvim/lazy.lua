@@ -166,32 +166,7 @@ require("lazy").setup({
               }
             end
           }
-          require('formatter').setup({
-            logging = true,
-            filetype = {
-              javascript = {
-                prettier
-              },
-              javascriptreact = {
-                prettier
-              },
-              typescript = {
-                prettier
-              },
-              typescriptreact = {
-                prettier
-              },
-              go = {
-                function()
-                  return {
-                    exe = "gofmt",
-                    args = {"-w", util.escape_path(util.get_current_buffer_file_path())},
-                    stdin = false
-                  }
-                end
-              },
-            }
-          })
+          require('formatter').setup()
         end
       }
 }, {

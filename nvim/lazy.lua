@@ -184,6 +184,10 @@ require("lazy").setup({
               },
             }
           })
+
+          vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+              command = ":FormatWrite",
+          })
         end
       }
 }, {

@@ -69,10 +69,19 @@ require("lazy").setup({
     {"neovim/nvim-lspconfig",
       config = function()
         local lspconfig = require("lspconfig")
-        lspconfig.tsserver.setup{}
-        lspconfig.eslint.setup{}
-        lspconfig.gopls.setup{}
-        lspconfig.elmls.setup{}
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        lspconfig.tsserver.setup{
+          capabilities = capabilities
+        }
+        lspconfig.eslint.setup{
+          capabilities = capabilities
+        }
+        lspconfig.gopls.setup{
+          capabilities = capabilities
+        }
+        lspconfig.elmls.setup{
+          capabilities = capabilities
+        }
 
         -- Global mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -253,13 +262,6 @@ require("lazy").setup({
           { name = 'cmdline' }
         })
       })
-
-      -- Set up lspconfig.
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-      require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-        capabilities = capabilities
-      }
     end
   }
 }, {

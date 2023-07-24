@@ -46,7 +46,7 @@ require("lazy").setup({
         require("mason-lspconfig").setup {
             ensure_installed = {
               "elmls",
-              --"eslint",
+              "eslint",
               "cssls",
               "jsonls",
               "gopls",

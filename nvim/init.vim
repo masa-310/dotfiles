@@ -1,6 +1,5 @@
 exec 'set runtimepath+=' . expand("<sfile>:p:h")
 exec 'set runtimepath+=' . expand("<sfile>:p:h") . '/plugins'
-runtime! lua/base.lua
 runtime lazy.lua
 runtime! conf/*
 runtime! plugins/*.vim

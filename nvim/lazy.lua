@@ -156,11 +156,11 @@ require("lazy").setup({
           -- markdown = {'markdownlint'},
           -- nix = {'nix'},
         }
-        --vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        --  callback = function()
-        --    require("lint").try_lint()
-        --  end,
-        --})
+        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+          callback = function()
+            require("lint").try_lint()
+          end,
+        })
       end
     },
     {"mhartington/formatter.nvim",
@@ -186,8 +186,7 @@ require("lazy").setup({
                 function()
                   return {
                     exe = "gofmt",
-                    args = {"-w", util.escape_path(util.get_current_buffer_file_path())},
-                    stdin = false
+                    stdin = true
                   }
                 end
               },

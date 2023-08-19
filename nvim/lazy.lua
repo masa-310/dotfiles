@@ -32,7 +32,6 @@ require("lazy").setup({
     "sheerun/vim-polyglot",
     "rgroli/other.nvim",
     "tjdevries/colorbuddy.nvim",
-    "neovim/nvim-lspconfig",
     {
       "williamboman/mason.nvim",
       build = ":MasonUpdate",
@@ -149,8 +148,8 @@ require("lazy").setup({
           javascriptreact = {'eslint'},
           typescript = {'eslint'},
           typescriptreact = {'eslint'},
+          go = {'golangcilint'}
           -- lua = {'luacheck'},
-          go = {'golangcilint'},
           -- yaml = {'yamllint'},
           -- json = {'jsonlint'},
           -- markdown = {'markdownlint'},
@@ -159,6 +158,7 @@ require("lazy").setup({
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
           callback = function()
             require("lint").try_lint()
+            require("lint").try_lint({"cspell"})
           end,
         })
       end
@@ -190,9 +190,20 @@ require("lazy").setup({
                   }
                 end
               },
+              -- Apply language server formatting if available.
+              ["*"] = {
+                require("formatter.filetypes.any").remove_trailing_whitespace,
+                function()
+                  -- Ignore already configured types.
+                  local defined_types = require("formatter.config").values.filetype
+                  if defined_types[vim.bo.filetype] ~= nil then
+                    return nil
+                  end
+                  vim.lsp.buf.format({ async = true })
+                end,
+              },
             }
           })
-
           vim.api.nvim_create_autocmd({ "BufWritePost" }, {
               command = ":FormatWrite",
           })
@@ -205,12 +216,8 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline",
   "petertriho/cmp-git",
   "saadparwaiz1/cmp_luasnip",
-  "f3fora/cmp-spell",
   {"hrsh7th/nvim-cmp",
     config = function()
-      vim.opt.spell = true
-      vim.opt.spelllang = { 'en_us' }
-
       -- Set up nvim-cmp.
       local cmp = require'cmp'
 
@@ -237,14 +244,6 @@ require("lazy").setup({
           { name = 'luasnip' }, -- For luasnip users.
           { name = 'path' },
           { name = 'buffer' },
-          { name = 'spell',
-            option = {
-              keep_all_entries = false,
-              enable_in_context = function()
-                  return true
-              end,
-            },
-          },
         })
       })
 

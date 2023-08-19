@@ -66,20 +66,31 @@ require("lazy").setup({
       end
     },
     {"neovim/nvim-lspconfig",
+      dependencies = { "lukas-reineke/lsp-format.nvim" },
       config = function()
+
         local lspconfig = require("lspconfig")
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+        require("lsp-format").setup {}
+        local on_attach = function(client)
+            require("lsp-format").on_attach(client)
+        end
         lspconfig.tsserver.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
         lspconfig.eslint.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
         lspconfig.gopls.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
         lspconfig.elmls.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
 
         -- Global mappings.
@@ -163,52 +174,61 @@ require("lazy").setup({
         })
       end
     },
-    {"mhartington/formatter.nvim",
-        config = function()
-          local util = require "formatter.util"
-          local defaults = require "formatter.defaults"
-          require('formatter').setup({
-            logging = true,
-            filetype = {
-              javascript = {
-                defaults.prettier
-              },
-              javascriptreact = {
-                defaults.prettier
-              },
-              typescript = {
-                defaults.prettier
-              },
-              typescriptreact = {
-                defaults.prettier
-              },
-              go = {
-                function()
-                  return {
-                    exe = "gofmt",
-                    stdin = true
-                  }
-                end
-              },
-              -- Apply language server formatting if available.
-              ["*"] = {
-                require("formatter.filetypes.any").remove_trailing_whitespace,
-                function()
-                  -- Ignore already configured types.
-                  local defined_types = require("formatter.config").values.filetype
-                  if defined_types[vim.bo.filetype] ~= nil then
-                    return nil
-                  end
-                  vim.lsp.buf.format()
-                end,
-              },
-            }
-          })
-          vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-              command = ":FormatWrite",
-          })
-        end
-      },
+    -- {"mhartington/formatter.nvim",
+    --     config = function()
+    --       local util = require "formatter.util"
+    --       local defaults = require "formatter.defaults"
+    --       local applyLspFormat =  function(client, bufnr)
+    --         local params = vim.lsp.util.make_formatting_params({})
+    --         local handler = function(err, result)
+    --           vim.lsp.util.apply_text_edits(result, bufnr, client.offset_encoding)
+    --           vim.cmd('write')
+    --         end
+
+    --         client.request('textDocument/formatting', params, handler, bufnr)
+    --       end
+    --       require('formatter').setup({
+    --         logging = true,
+    --         filetype = {
+    --           javascript = {
+    --             defaults.prettier
+    --           },
+    --           javascriptreact = {
+    --             defaults.prettier
+    --           },
+    --           typescript = {
+    --             defaults.prettier
+    --           },
+    --           typescriptreact = {
+    --             defaults.prettier
+    --           },
+    --           go = {
+    --             function()
+    --               return {
+    --                 exe = "gofmt",
+    --                 stdin = true
+    --               }
+    --             end
+    --           },
+    --           -- Apply language server formatting if available.
+    --           ["*"] = {
+    --             require("formatter.filetypes.any").remove_trailing_whitespace,
+    --             function()
+    --               -- Ignore already configured types.
+    --               local defined_types = require("formatter.config").values.filetype
+    --               if defined_types[vim.bo.filetype] ~= nil then
+    --                 return nil
+    --               end
+    --               vim.lsp.buf.format({ async = true })
+    --             end,
+    --           },
+    --         }
+    --       })
+    --       vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    --           command = ":FormatWrite",
+    --       })
+    --     end
+    --   },
   "cohama/lexima.vim",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",

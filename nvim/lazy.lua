@@ -199,12 +199,12 @@ require("lazy").setup({
                   if defined_types[vim.bo.filetype] ~= nil then
                     return nil
                   end
-                  vim.lsp.buf.format({ async = true })
+                  vim.lsp.buf.format()
                 end,
               },
             }
           })
-          vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+          vim.api.nvim_create_autocmd({ "BufWritePre" }, {
               command = ":FormatWrite",
           })
         end

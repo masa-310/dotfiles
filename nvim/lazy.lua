@@ -205,8 +205,12 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline",
   "petertriho/cmp-git",
   "saadparwaiz1/cmp_luasnip",
+  "f3fora/cmp-spell",
   {"hrsh7th/nvim-cmp",
     config = function()
+      vim.opt.spell = true
+      vim.opt.spelllang = { 'en_us' }
+
       -- Set up nvim-cmp.
       local cmp = require'cmp'
 
@@ -233,6 +237,14 @@ require("lazy").setup({
           { name = 'luasnip' }, -- For luasnip users.
           { name = 'path' },
           { name = 'buffer' },
+          { name = 'spell',
+            option = {
+              keep_all_entries = false,
+              enable_in_context = function()
+                  return true
+              end,
+            },
+          },
         })
       })
 

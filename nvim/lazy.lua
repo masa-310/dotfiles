@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
+
 require("lazy").setup({
     "thinca/vim-quickrun",
     "alvan/vim-closetag",
@@ -101,8 +102,6 @@ require("lazy").setup({
         }
 
         -- efm
-        local defaultLaungages = require('efmls-configs.defaults').languages()
-
         -- typescript
         local eslint = require('efmls-configs.linters.eslint')
         local prettier = require('efmls-configs.formatters.prettier')
@@ -113,13 +112,11 @@ require("lazy").setup({
 
         -- lua
         local stylua = require('efmls-configs.formatters.stylua')
-        local customLanguages = {
+        local languages = {
           typescript = { prettier, eslint },
           go = { golangci_lint, gofmt },
           lua = { stylua },
         }
-
-        local languages = vim.tbl_extend('force', defaultLaungages, customLanguages)
 
         local efmls_config = {
           filetypes = vim.tbl_keys(languages),

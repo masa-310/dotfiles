@@ -32,7 +32,6 @@ require("lazy").setup({
     "sheerun/vim-polyglot",
     "rgroli/other.nvim",
     "tjdevries/colorbuddy.nvim",
-    "neovim/nvim-lspconfig",
     {
       "williamboman/mason.nvim",
       build = ":MasonUpdate",
@@ -46,13 +45,11 @@ require("lazy").setup({
         require("mason-lspconfig").setup {
             ensure_installed = {
               "elmls",
-              "eslint",
               "cssls",
               "jsonls",
               "gopls",
-              "golangci_lint_ls",
               "graphql",
-              -- "luals",
+              "luals",
               "tsserver",
               -- "rnix",
               "rust_analyzer",
@@ -67,21 +64,75 @@ require("lazy").setup({
       end
     },
     {"neovim/nvim-lspconfig",
+      dependencies = { "lukas-reineke/lsp-format.nvim",  "creativenull/efmls-configs-nvim" },
       config = function()
+
         local lspconfig = require("lspconfig")
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+        require("lsp-format").setup {}
+        local on_attach = function(client)
+            require("lsp-format").on_attach(client)
+        end
         lspconfig.tsserver.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
         lspconfig.eslint.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
         lspconfig.gopls.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
         lspconfig.elmls.setup{
-          capabilities = capabilities
+          capabilities = capabilities,
+          on_attach = on_attach
         }
+        lspconfig.rust_analyzer.setup {
+          capabilities = capabilities,
+          on_attach = on_attach
+        }
+
+        -- efm
+        local defaultLaungages = require('efmls-configs.defaults').languages()
+
+        -- typescript
+        local eslint = require('efmls-configs.linters.eslint')
+        local prettier = require('efmls-configs.formatters.prettier')
+
+        -- go
+        local golangci_lint = require('efmls-configs.linters.golangci_lint')
+        local gofmt = require('efmls-configs.formatters.gofmt')
+
+        -- lua
+        local stylua = require('efmls-configs.formatters.stylua')
+        local customLanguages = {
+          typescript = { prettier, eslint },
+          go = { golangci_lint, gofmt },
+          lua = { stylua },
+        }
+
+        local languages = vim.tbl_extend('force', languages, customLanguages)
+
+        local efmls_config = {
+          filetypes = vim.tbl_keys(languages),
+          settings = {
+            rootMarkers = { '.git/' },
+            languages = languages,
+          },
+          init_options = {
+            documentFormatting = true,
+            documentRangeFormatting = true,
+          },
+        }
+
+        require('lspconfig').efm.setup(vim.tbl_extend('force', efmls_config, {
+          -- Pass your custom lsp config below like on_attach and capabilities
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }))
 
         -- Global mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -143,62 +194,6 @@ require("lazy").setup({
         require('oil').setup()
       end
     },
-    {"mfussenegger/nvim-lint",
-      config = function()
-        require('lint').linters_by_ft = {
-          javascript = {'eslint'},
-          javascriptreact = {'eslint'},
-          typescript = {'eslint'},
-          typescriptreact = {'eslint'},
-          -- lua = {'luacheck'},
-          go = {'golangcilint'},
-          -- yaml = {'yamllint'},
-          -- json = {'jsonlint'},
-          -- markdown = {'markdownlint'},
-          -- nix = {'nix'},
-        }
-        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-          callback = function()
-            require("lint").try_lint()
-          end,
-        })
-      end
-    },
-    {"mhartington/formatter.nvim",
-        config = function()
-          local util = require "formatter.util"
-          local defaults = require "formatter.defaults"
-          require('formatter').setup({
-            logging = true,
-            filetype = {
-              javascript = {
-                defaults.prettier
-              },
-              javascriptreact = {
-                defaults.prettier
-              },
-              typescript = {
-                defaults.prettier
-              },
-              typescriptreact = {
-                defaults.prettier
-              },
-              go = {
-                function()
-                  return {
-                    exe = "gofmt",
-                    stdin = true
-                  }
-                end
-              },
-            }
-          })
-
-          vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-              command = ":FormatWrite",
-          })
-        end
-      },
   "cohama/lexima.vim",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",

@@ -59,6 +59,7 @@ require("lazy").setup({
               "taplo",
               "tflint",
               "yamlls",
+              "efm",
             }
         }
       end

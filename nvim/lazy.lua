@@ -49,7 +49,7 @@ require("lazy").setup({
               "jsonls",
               "gopls",
               "graphql",
-              "luals",
+              "lua_ls",
               "tsserver",
               -- "rnix",
               "rust_analyzer",

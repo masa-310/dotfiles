@@ -114,7 +114,7 @@ require("lazy").setup({
           lua = { stylua },
         }
 
-        local languages = vim.tbl_extend('force', languages, customLanguages)
+        local languages = vim.tbl_extend('force', defaultLaungages, customLanguages)
 
         local efmls_config = {
           filetypes = vim.tbl_keys(languages),

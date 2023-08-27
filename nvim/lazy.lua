@@ -1,4 +1,19 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "",
+		spacing = 0,
+		format = function(diagnostic)
+			return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+		end,
+	},
+	underline = true,
+	severity_sort = true,
+	signs = true,
+	update_in_insert = false,
+})
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -51,7 +66,11 @@ require("lazy").setup({
 		dependencies = { "lukas-reineke/lsp-format.nvim", "creativenull/efmls-configs-nvim" },
 		config = function()
 			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+			local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities = vim.tbl_extend("force", default_capabilities, cmp_capabilities)
+			-- avoid performance degrading
+			capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
 			require("lsp-format").setup({})
 			local on_attach = function(client)

@@ -4,7 +4,15 @@ vim.diagnostic.config({
 	virtual_text = {
 		spacing = 0,
 		format = function(diagnostic)
-			return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+			local code = "-"
+			local source = "efm"
+			if diagnostic.source ~= nil then
+				source = diagnostic.source
+			end
+			if diagnostic.code ~= nil then
+				code = diagnostic.code
+			end
+			return string.format("%s (%s: %s)", diagnostic.message, source, code)
 		end,
 	},
 	underline = true,
@@ -101,7 +109,7 @@ require("lazy").setup({
 
 			-- efm
 			-- typescript
-			local eslint_d = require('efmls-configs.linters.eslint_d')
+			local eslint_d = require("efmls-configs.linters.eslint_d")
 			local prettier = require("efmls-configs.formatters.prettier")
 
 			-- go
@@ -112,7 +120,9 @@ require("lazy").setup({
 			local stylua = require("efmls-configs.formatters.stylua")
 			local languages = {
 				javascript = { prettier, eslint_d },
+				jsx = { prettier, eslint_d },
 				typescript = { prettier, eslint_d },
+				typescriptreact = { prettier, eslint_d },
 				go = { golangci_lint, gofmt },
 				lua = { stylua },
 			}

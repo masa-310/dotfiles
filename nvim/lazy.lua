@@ -47,11 +47,22 @@ require("lazy").setup({
 	"vim-airline/vim-airline-themes",
 	"ryanoasis/vim-devicons",
 	"whonore/Coqtail",
-	{ "junegunn/fzf", build = "fzf#install()" },
-	"junegunn/fzf.vim",
 	"github/copilot.vim",
 	"rgroli/other.nvim",
 	"tjdevries/colorbuddy.nvim",
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function() end,
+		keys = {
+			{ "<C-p>", ":lua require('telescope.builtin').builtin{}<CR>" },
+			{ "<C-j>", ":lua require('telescope.builtin').live_grep{}<CR>" },
+			{ "<C-f>", ":lua require('telescope.builtin').find_files{}<CR>" },
+			{ "<C-h>", ":lua require('telescope.builtin').oldfiles{}<CR>" },
+			{ "<C-b>", ":lua require('telescope.builtin').buffers{}<CR>" },
+		},
+	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = "TSUpdate",
@@ -188,21 +199,7 @@ require("lazy").setup({
 		"echasnovski/mini.files",
 		version = "false",
 		config = function()
-			require("mini.files").setup({
-				mappings = {
-					close = "<C-e>",
-					go_in = "L",
-					go_in_plus = "l",
-					go_out = "h",
-					go_out_plus = "H",
-					reset = "<BS>",
-					reveal_cwd = "@",
-					show_help = "g?",
-					synchronize = "=",
-					trim_left = "<",
-					trim_right = ">",
-				},
-			})
+			require("mini.files").setup()
 		end,
 		keys = {
 			{ "<C-e>", ":lua MiniFiles.open()<CR>" },

@@ -78,11 +78,10 @@ require("lazy").setup({
         end
         lspconfig.tsserver.setup{
           capabilities = capabilities,
-          on_attach = on_attach
-        }
-        lspconfig.eslint.setup{
-          capabilities = capabilities,
-          on_attach = on_attach
+          on_attach = on_attach,
+          init_options = {
+            documentFormatting = false,
+          },
         }
         lspconfig.gopls.setup{
           capabilities = capabilities,

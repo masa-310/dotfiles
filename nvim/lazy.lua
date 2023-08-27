@@ -50,7 +50,6 @@ require("lazy").setup({
 	{ "junegunn/fzf", build = "fzf#install()" },
 	"junegunn/fzf.vim",
 	"github/copilot.vim",
-	"sheerun/vim-polyglot",
 	"rgroli/other.nvim",
 	"tjdevries/colorbuddy.nvim",
 	{
@@ -185,26 +184,29 @@ require("lazy").setup({
 			})
 		end,
 	},
-	-- {"nvim-tree/nvim-tree.lua",
-	--   keys = {
-	--     {"n", "<C-e>", ":NvimTreeToggle<CR>"},
-	--     {"n", "<leader>r", ":NvimTreeRefresh<CR>"},
-	--     {"n", "<leader>n", ":NvimTreeFindFile<CR>"},
-	--   },
-	--   config = function()
-	--     require("nvim-tree").setup()
-	--   end
-	-- },
 	{
-		"stevearc/oil.nvim",
-		opts = {},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		keys = {
-			{ "<C-e>", ":Oil<CR>" },
-		},
+		"echasnovski/mini.files",
+		version = "false",
 		config = function()
-			require("oil").setup()
+			require("mini.files").setup({
+				mappings = {
+					close = "<C-e>",
+					go_in = "L",
+					go_in_plus = "l",
+					go_out = "h",
+					go_out_plus = "H",
+					reset = "<BS>",
+					reveal_cwd = "@",
+					show_help = "g?",
+					synchronize = "=",
+					trim_left = "<",
+					trim_right = ">",
+				},
+			})
 		end,
+		keys = {
+			{ "<C-e>", ":lua MiniFiles.open()<CR>" },
+		},
 	},
 	"cohama/lexima.vim",
 	"hrsh7th/cmp-nvim-lsp",

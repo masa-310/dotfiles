@@ -101,7 +101,7 @@ require("lazy").setup({
 
 			-- efm
 			-- typescript
-			local eslint = require("efmls-configs.linters.eslint")
+			local eslint_d = require('efmls-configs.linters.eslint_d')
 			local prettier = require("efmls-configs.formatters.prettier")
 
 			-- go
@@ -111,7 +111,8 @@ require("lazy").setup({
 			-- lua
 			local stylua = require("efmls-configs.formatters.stylua")
 			local languages = {
-				typescript = { prettier, eslint },
+				javascript = { prettier, eslint_d },
+				typescript = { prettier, eslint_d },
 				go = { golangci_lint, gofmt },
 				lua = { stylua },
 			}
@@ -128,11 +129,11 @@ require("lazy").setup({
 				},
 			}
 
-			-- require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
-			-- 	-- Pass your custom lsp config below like on_attach and capabilities
-			-- 	on_attach = on_attach,
-			-- 	capabilities = capabilities,
-			-- }))
+			require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
+				-- Pass your custom lsp config below like on_attach and capabilities
+				on_attach = on_attach,
+				capabilities = capabilities,
+			}))
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions

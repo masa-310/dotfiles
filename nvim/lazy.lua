@@ -133,7 +133,7 @@ require("lazy").setup({
 				jsx = { prettier, eslint_d },
 				typescript = { prettier, eslint_d },
 				typescriptreact = { prettier, eslint_d },
-				go = { golangci_lint, gofmt },
+				go = { gofmt },
 				lua = { stylua },
 			}
 

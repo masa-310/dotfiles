@@ -107,6 +107,14 @@ require("lazy").setup({
 			lspconfig.elmls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				settings = {
+					elmLS = {
+						elmPath = "",
+						elmFormatPath = "",
+						elmTestPath = "",
+						elmReviewPath = "",
+					},
+				},
 			})
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,

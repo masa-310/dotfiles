@@ -124,6 +124,11 @@ require("lazy").setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			lspconfig.hls.setup({
+				filetypes = { "haskell", "lhaskell", "cabal" },
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 
 			-- efm
 			-- typescript

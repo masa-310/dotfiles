@@ -134,6 +134,10 @@ require("lazy").setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			lspconfig.purescriptls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 
 			-- efm
 			-- typescript
@@ -153,6 +157,7 @@ require("lazy").setup({
 				typescriptreact = { prettier, eslint_d },
 				go = { gofmt },
 				lua = { stylua },
+				-- purescript = { }
 			}
 
 			local efmls_config = {

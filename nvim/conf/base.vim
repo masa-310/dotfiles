@@ -60,6 +60,8 @@ set mouse=
 
 set signcolumn=yes
 
+autocmd BufNewFile,BufRead *.purs set filetype=purescript
+
 " set spell
 " set spelllang=en_us
 "

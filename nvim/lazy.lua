@@ -107,20 +107,30 @@ require("lazy").setup({
 			lspconfig.elmls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-				settings = {
-					elmLS = {
-						elmPath = "",
-						elmFormatPath = "",
-						elmTestPath = "",
-						elmReviewPath = "",
-					},
-				},
 			})
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.hls.setup({
+				filetypes = { "haskell", "lhaskell", "cabal" },
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.ccls.setup({
+				filetypes = { "c", "cpp" },
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.purescriptls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.bufls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
@@ -134,6 +144,11 @@ require("lazy").setup({
 			local golangci_lint = require("efmls-configs.linters.golangci_lint")
 			local gofmt = require("efmls-configs.formatters.gofmt")
 
+			local purs_tidy = {
+				formatCommand = "purs-tidy format",
+				formatStdin = true,
+			}
+
 			-- lua
 			local stylua = require("efmls-configs.formatters.stylua")
 			local languages = {
@@ -141,8 +156,9 @@ require("lazy").setup({
 				jsx = { prettier, eslint_d },
 				typescript = { prettier, eslint_d },
 				typescriptreact = { prettier, eslint_d },
-				go = { gofmt },
+				go = { gofmt, golangci_lint },
 				lua = { stylua },
+				purescript = { purs_tidy },
 			}
 
 			local efmls_config = {
@@ -306,6 +322,90 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
+		config = function()
+			require("hardtime").setup()
+		end,
+	},
+	{
+		"is0n/jaq-nvim",
+		config = function()
+			require("jaq-nvim").setup({
+				cmds = {
+					-- Uses vim commands
+					internal = {
+						lua = "luafile %",
+						vim = "source %",
+					},
+
+					-- Uses shell commands
+					external = {
+						markdown = "glow %",
+						python = "python3 %",
+						go = "go run %",
+						sh = "sh %",
+					},
+				},
+
+				behavior = {
+					-- Default type
+					default = "float",
+
+					-- Start in insert mode
+					startinsert = false,
+
+					-- Use `wincmd p` on startup
+					wincmd = false,
+
+					-- Auto-save files
+					autosave = false,
+				},
+
+				ui = {
+					float = {
+						-- See ':h nvim_open_win'
+						border = "none",
+
+						-- See ':h winhl'
+						winhl = "Normal",
+						borderhl = "FloatBorder",
+
+						-- See ':h winblend'
+						winblend = 0,
+
+						-- Num from `0-1` for measurements
+						height = 0.8,
+						width = 0.8,
+						x = 0.5,
+						y = 0.5,
+					},
+
+					terminal = {
+						-- Window position
+						position = "bot",
+
+						-- Window size
+						size = 10,
+
+						-- Disable line numbers
+						line_no = false,
+					},
+
+					quickfix = {
+						-- Window position
+						position = "bot",
+
+						-- Window size
+						size = 10,
+					},
+				},
+			})
+		end,
+	},
+	"purescript-contrib/purescript-vim",
 	{
 		"iamcco/markdown-preview.nvim",
 		config = function()

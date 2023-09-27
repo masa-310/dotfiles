@@ -141,7 +141,7 @@ require("lazy").setup({
 			local prettier = require("efmls-configs.formatters.prettier")
 
 			-- go
-			local golangci_lint = require("efmls-configs.linters.golangci_lint")
+			-- local golangci_lint = require("efmls-configs.linters.golangci_lint")
 			local gofmt = require("efmls-configs.formatters.gofmt")
 
 			local purs_tidy = {
@@ -156,7 +156,7 @@ require("lazy").setup({
 				jsx = { prettier, eslint_d },
 				typescript = { prettier, eslint_d },
 				typescriptreact = { prettier, eslint_d },
-				go = { gofmt, golangci_lint },
+				go = { gofmt },
 				lua = { stylua },
 				purescript = { purs_tidy },
 			}

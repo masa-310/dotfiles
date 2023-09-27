@@ -406,6 +406,12 @@ require("lazy").setup({
 		end,
 	},
 	"purescript-contrib/purescript-vim",
+	{
+		"iamcco/markdown-preview.nvim",
+		config = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 }, {
 	performance = {
 		rtp = {

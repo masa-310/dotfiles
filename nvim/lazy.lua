@@ -35,7 +35,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"thinca/vim-quickrun",
-	"alvan/vim-closetag",
 	"honza/vim-snippets",
 	{
 		"L3MON4D3/LuaSnip",
@@ -63,12 +62,16 @@ require("lazy").setup({
 			{ "<C-b>", ":lua require('telescope.builtin').buffers{}<CR>" },
 		},
 	},
+	"windwp/nvim-ts-autotag",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = "TSUpdate",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",
+				autotag = {
+					enable = true,
+				},
 				highlight = {
 					enable = true,
 				},

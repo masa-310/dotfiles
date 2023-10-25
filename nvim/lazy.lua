@@ -106,6 +106,15 @@ require("lazy").setup({
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								{ "tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+							},
+						},
+					},
+				},
 			})
 			lspconfig.gopls.setup({
 				capabilities = capabilities,

@@ -154,6 +154,9 @@ require("lazy").setup({
 			-- efm
 			-- typescript
 			local eslint_d = require("efmls-configs.linters.eslint_d")
+			eslint_d.formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}"
+			eslint_d.formatStdin = true
+
 			local prettier = require("efmls-configs.formatters.prettier")
 
 			-- go
@@ -186,6 +189,7 @@ require("lazy").setup({
 				init_options = {
 					documentFormatting = true,
 					documentRangeFormatting = true,
+					codeAction = true,
 				},
 			}
 

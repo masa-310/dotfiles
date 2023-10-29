@@ -170,14 +170,18 @@ require("lazy").setup({
 
 			-- lua
 			local stylua = require("efmls-configs.formatters.stylua")
+
+			-- cspell
+			local cspell = require("efmls-configs.linters.cspell")
+
 			local languages = {
-				javascript = { prettier, eslint_d },
-				jsx = { prettier, eslint_d },
-				typescript = { prettier, eslint_d },
-				typescriptreact = { prettier, eslint_d },
-				go = { gofmt },
-				lua = { stylua },
-				purescript = { purs_tidy },
+				javascript = { prettier, eslint_d, cspell },
+				jsx = { prettier, eslint_d, cspell },
+				typescript = { prettier, eslint_d, cspell },
+				typescriptreact = { prettier, eslint_d, cspell },
+				go = { gofmt, cspell },
+				lua = { stylua, cspell },
+				purescript = { purs_tidy, cspell },
 			}
 
 			local efmls_config = {

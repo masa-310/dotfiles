@@ -351,7 +351,9 @@ require("lazy").setup({
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 		opts = {},
 		config = function()
-			require("hardtime").setup()
+			require("hardtime").setup({
+				max_time = 5,
+			})
 		end,
 	},
 	{

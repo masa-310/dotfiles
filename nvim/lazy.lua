@@ -53,13 +53,14 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function() end,
 		keys = {
 			{ "<C-p>", ":lua require('telescope.builtin').builtin{}<CR>" },
 			{ "<C-j>", ":lua require('telescope.builtin').live_grep{}<CR>" },
 			{ "<C-f>", ":lua require('telescope.builtin').find_files{}<CR>" },
 			{ "<C-h>", ":lua require('telescope.builtin').oldfiles{}<CR>" },
-			{ "<C-b>", ":lua require('telescope.builtin').buffers{}<CR>" },
+			{ "<C-l>", ":lua require('telescope.builtin').buffers{}<CR>" },
+			-- // { "<C-t>", ":lua require('trouble.open_with_trouble').open_with_trouble<CR>" },
+			-- // { "<C-,>", ":lua require('trouble.open_with_trouble').open_with_trouble<CR>" },
 		},
 	},
 	"windwp/nvim-ts-autotag",
@@ -438,6 +439,36 @@ require("lazy").setup({
 	--			vim.fn["mkdp#util#install"]()
 	--		end,
 	--	},
+	--
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			vim.keymap.set("n", "<leader>xx", function()
+				require("trouble").toggle()
+			end)
+			vim.keymap.set("n", "<leader>xw", function()
+				require("trouble").toggle("workspace_diagnostics")
+			end)
+			vim.keymap.set("n", "<leader>xd", function()
+				require("trouble").toggle("document_diagnostics")
+			end)
+			vim.keymap.set("n", "<leader>xq", function()
+				require("trouble").toggle("quickfix")
+			end)
+			vim.keymap.set("n", "<leader>xl", function()
+				require("trouble").toggle("loclist")
+			end)
+			vim.keymap.set("n", "gR", function()
+				require("trouble").toggle("lsp_references")
+			end)
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
 }, {
 	performance = {
 		rtp = {

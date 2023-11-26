@@ -45,7 +45,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2 "indent for continuous spaces
-set autoindent
 set smartindent
 
 " searching
@@ -59,6 +58,10 @@ set hidden "enable us to change buffer without saving
 set mouse=
 
 set signcolumn=yes
+
+set autochdir
+set autoindent
+set backup
 
 autocmd BufNewFile,BufRead *.purs set filetype=purescript
 

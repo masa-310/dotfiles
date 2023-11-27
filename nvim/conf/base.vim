@@ -59,7 +59,6 @@ set mouse=
 
 set signcolumn=yes
 
-set autochdir
 set autoindent
 set backup
 

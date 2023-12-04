@@ -357,7 +357,8 @@ require("lazy").setup({
 		opts = {},
 		config = function()
 			require("hardtime").setup({
-				max_time = 5,
+				max_time = 10,
+				disabled_keys = { "<CR>", "<Del>" },
 			})
 		end,
 	},

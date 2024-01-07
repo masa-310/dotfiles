@@ -159,6 +159,10 @@ require("lazy").setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 
 			-- efm
 			-- typescript

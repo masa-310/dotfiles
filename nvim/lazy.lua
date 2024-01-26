@@ -125,6 +125,10 @@ require("lazy").setup({
 					},
 				},
 			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,

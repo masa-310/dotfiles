@@ -53,6 +53,12 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			vim.api.nvim_create_autocmd(
+				"FileType",
+				{ pattern = "TelescopeResults", command = [[setlocal nofoldenable]] }
+			)
+		end,
 		keys = {
 			{ "<C-p>", ":lua require('telescope.builtin').builtin{}<CR>" },
 			{ "<C-j>", ":lua require('telescope.builtin').live_grep{}<CR>" },

@@ -372,6 +372,9 @@ require("lazy").setup({
 	},
 	{
 		"is0n/jaq-nvim",
+		keys = {
+			{ "<C-s>", ":Jaq<CR>" },
+		},
 		config = function()
 			require("jaq-nvim").setup({
 				cmds = {
@@ -387,12 +390,13 @@ require("lazy").setup({
 						python = "python3 %",
 						go = "go run %",
 						sh = "sh %",
+						cpp = "g++ --std=c++20 % -o /tmp/out && /tmp/out",
 					},
 				},
 
 				behavior = {
 					-- Default type
-					default = "float",
+					default = "bang",
 
 					-- Start in insert mode
 					startinsert = false,

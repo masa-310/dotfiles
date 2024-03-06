@@ -492,6 +492,11 @@ require("lazy").setup({
 			-- refer to the configuration section below
 		},
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 }, {
 	performance = {
 		rtp = {

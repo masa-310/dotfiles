@@ -173,6 +173,10 @@ require("lazy").setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			lspconfig.sqlls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 
 			-- efm
 			-- typescript

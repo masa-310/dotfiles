@@ -90,7 +90,7 @@ require("lazy").setup({
 	},
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "lukas-reineke/lsp-format.nvim", "creativenull/efmls-configs-nvim" },
+		dependencies = { "lukas-reineke/lsp-format.nvim", "creativenull/efmls-configs-nvim", "nanotee/sqls.nvim" },
 		config = function()
 			local lspconfig = require("lspconfig")
 			local default_capabilities = vim.lsp.protocol.make_client_capabilities()

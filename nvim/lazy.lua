@@ -174,8 +174,23 @@ require("lazy").setup({
 				on_attach = on_attach,
 			})
 			lspconfig.sqls.setup({
+				cmd = { require("bin_path").sqls },
+				on_attach = function(client, bufnr)
+					on_attach(client, bufnr)
+					require("sqls").on_attach(client, bufnr)
+					local bufmap = vim.api.nvim_buf_set_keymap
+					bufmap(bufnr, "n", "<LocalLeader>ss", "<cmd>SqlsExecuteQuery<CR>", { silent = true })
+					bufmap(bufnr, "v", "<LocalLeader>ss", "<cmd>SqlsExecuteQuery<CR>", { silent = true })
+				end,
 				capabilities = capabilities,
-				on_attach = on_attach,
+				single_file_support = false,
+				on_new_config = function(new_config, new_rootdir)
+					new_config.cmd = {
+						require("bin_path").sqls,
+						"-config",
+						new_rootdir .. "/.sqls.yml",
+					}
+				end,
 			})
 
 			-- efm

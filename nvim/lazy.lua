@@ -174,7 +174,7 @@ require("lazy").setup({
 				on_attach = on_attach,
 			})
 			lspconfig.sqls.setup({
-				cmd = { require("bin_path").sqls },
+				cmd = { "sqls" },
 				on_attach = function(client, bufnr)
 					on_attach(client, bufnr)
 					require("sqls").on_attach(client, bufnr)
@@ -186,7 +186,7 @@ require("lazy").setup({
 				single_file_support = false,
 				on_new_config = function(new_config, new_rootdir)
 					new_config.cmd = {
-						require("bin_path").sqls,
+						"sqls",
 						"-config",
 						new_rootdir .. "/.sqls.yml",
 					}

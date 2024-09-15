@@ -120,7 +120,7 @@ require("lazy").setup({
       local on_attach = function(client)
         require("lsp-format").on_attach(client)
       end
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         init_options = {

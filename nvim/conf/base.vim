@@ -15,15 +15,15 @@ set fileformats=unix,dos,mac
 filetype plugin indent on
 
 " colorscheme
-"colorscheme molokai
-highlight Normal guibg=NONE ctermbg=NONE
-highlight NonText guibg=NONE ctermbg=NONE
-highlight LineNr guibg=NONE ctermbg=NONE
-highlight Folded guibg=NONE ctermbg=NONe
-highlight EndOfBuffer guibg=NONE ctermbg=NONE
-highlight LineNrAbove ctermfg=8
-highlight LineNrBelow ctermfg=8
-highlight CursorLine cterm=bold
+colorscheme molokai
+"highlight Normal guibg=NONE ctermbg=NONE
+"highlight NonText guibg=NONE ctermbg=NONE
+"highlight LineNr guibg=NONE ctermbg=NONE
+"highlight Folded guibg=NONE ctermbg=NONE
+"highlight EndOfBuffer guibg=NONE ctermbg=NONE
+"highlight LineNrAbove ctermfg=8
+"highlight LineNrBelow ctermfg=8
+"highlight CursorLine cterm=bold
 
 
 "viminfo, swap and other files for persistent

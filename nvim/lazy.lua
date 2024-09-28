@@ -48,7 +48,16 @@ require("lazy").setup({
 	"whonore/Coqtail",
 	"github/copilot.vim",
 	"rgroli/other.nvim",
-	"tjdevries/colorbuddy.nvim",
+	{
+		"xiyaowong/transparent.nvim",
+		lazy = false,
+		priority = 1000,
+		init = function()
+			require("transparent").setup({
+				enable = true,
+			})
+		end,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",

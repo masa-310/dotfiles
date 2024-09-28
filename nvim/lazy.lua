@@ -309,7 +309,29 @@ require("lazy").setup({
 			{ "<C-e>", ":Oil --float<CR>" },
 		},
 		config = function()
-			require("oil").setup({})
+			require("oil").setup({
+				lsp_file_methods = {
+					enabled = true,
+					timeout_ms = 1000,
+					autosave_changes = true,
+				},
+				view_options = {
+					show_hidden = true,
+				},
+				float = {
+					border = "none",
+
+					winhl = "Normal",
+					borderhl = "FloatBorder",
+
+					winblend = 0,
+
+					height = 0.8,
+					width = 0.8,
+					x = 0.5,
+					y = 0.5,
+				},
+			})
 		end,
 	},
 	"cohama/lexima.vim",

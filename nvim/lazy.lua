@@ -63,6 +63,17 @@ require("lazy").setup({
 		tag = "0.1.6",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
+			require("telescope").setup({
+				defaults = {
+					wrap_results = true,
+					sorting_strategy = "ascending",
+				},
+				pickers = {
+					oldfiles = {
+						initial_mode = "normal",
+					},
+				},
+			})
 			vim.api.nvim_create_autocmd(
 				"FileType",
 				{ pattern = "TelescopeResults", command = [[setlocal nofoldenable]] }

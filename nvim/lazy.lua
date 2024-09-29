@@ -66,7 +66,6 @@ require("lazy").setup({
 			require("telescope").setup({
 				defaults = {
 					wrap_results = true,
-					sorting_strategy = "ascending",
 				},
 				pickers = {
 					oldfiles = {

@@ -58,6 +58,7 @@ require("lazy").setup({
 			})
 		end,
 	},
+	"Zane-/cder.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
@@ -72,7 +73,14 @@ require("lazy").setup({
 						initial_mode = "normal",
 					},
 				},
+				extensions = {
+					file_browser = {
+						hijack_netrw = true,
+					},
+				},
 			})
+			require("telescope").load_extension("cder")
+
 			vim.api.nvim_create_autocmd(
 				"FileType",
 				{ pattern = "TelescopeResults", command = [[setlocal nofoldenable]] }
@@ -80,6 +88,7 @@ require("lazy").setup({
 		end,
 		keys = {
 			{ "<C-p>", ":lua require('telescope.builtin').builtin{}<CR>" },
+			{ "<C-s>", ":Telescope cder" },
 			{ "<C-j>", ":lua require('telescope.builtin').live_grep{}<CR>" },
 			{ "<C-f>", ":lua require('telescope.builtin').find_files{}<CR>" },
 			{ "<C-h>", ":lua require('telescope.builtin').oldfiles{}<CR>" },
@@ -421,20 +430,9 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {},
-		config = function()
-			require("hardtime").setup({
-				max_time = 10,
-				disabled_keys = { "<CR>", "<Del>" },
-			})
-		end,
-	},
-	{
 		"is0n/jaq-nvim",
 		keys = {
-			{ "<C-s>", ":Jaq<CR>" },
+			{ "<C-x>", ":Jaq<CR>" },
 		},
 		config = function()
 			require("jaq-nvim").setup({

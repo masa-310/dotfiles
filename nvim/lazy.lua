@@ -59,6 +59,7 @@ require("lazy").setup({
 		end,
 	},
 	"Zane-/cder.nvim",
+	"ahmedkhalf/project.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
@@ -80,6 +81,7 @@ require("lazy").setup({
 				},
 			})
 			require("telescope").load_extension("cder")
+			require("telescope").load_extension("projects")
 
 			vim.api.nvim_create_autocmd(
 				"FileType",
@@ -87,8 +89,8 @@ require("lazy").setup({
 			)
 		end,
 		keys = {
-			{ "<C-p>", ":lua require('telescope.builtin').builtin{}<CR>" },
-			{ "<C-s>", ":Telescope cder" },
+			{ "<C-p>", ":Telescope projects<CR>" },
+			{ "<C-s>", ":Telescope cder<CR>" },
 			{ "<C-j>", ":lua require('telescope.builtin').live_grep{}<CR>" },
 			{ "<C-f>", ":lua require('telescope.builtin').find_files{}<CR>" },
 			{ "<C-h>", ":lua require('telescope.builtin').oldfiles{}<CR>" },

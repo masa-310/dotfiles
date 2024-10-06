@@ -1,7 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- Store the initial working directory when Neovim starts
 local function get_git_dir_otherwise_cwd(cmd)
-	local handle = io.popen("git rev-parse --show-toplevel")
+	local handle = io.popen("git rev-parse --show-toplevel 2>/dev/null")
 	local cwd = vim.loop.cwd()
 	if not handle then
 		return cwd
@@ -112,7 +112,7 @@ require("lazy").setup({
 							".",
 							search_root,
 						},
-						previewer_command = "exa -a --icons",
+						previewer_command = "eza -a --icons",
 					},
 				},
 			})
@@ -125,7 +125,7 @@ require("lazy").setup({
 			)
 		end,
 		keys = {
-			{ "<C-p>", ":lua require('telescope.builtin')" },
+			{ "<C-p>", ":Telescope<CR>" },
 			{ "<C-s>", ":Telescope cder<CR>" },
 			{
 				"<C-j>",

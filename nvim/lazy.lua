@@ -491,7 +491,7 @@ require("lazy").setup({
 	{
 		"is0n/jaq-nvim",
 		keys = {
-			{ "<C-x>", ":Jaq<CR>" },
+			{ "<C-0>", ":Jaq<CR>" },
 		},
 		config = function()
 			require("jaq-nvim").setup({

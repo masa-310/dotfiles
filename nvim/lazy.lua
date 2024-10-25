@@ -1,4 +1,26 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- Store the initial working directory when Neovim starts
+local function get_git_dir_otherwise_cwd(cmd)
+	local handle = io.popen("git rev-parse --show-toplevel 2>/dev/null")
+	local cwd = vim.loop.cwd()
+	if not handle then
+		return cwd
+	end
+
+	local result = handle:read("*a")
+	local success, exit_type, exit_code = handle:close()
+
+	-- Trim any trailing whitespace from the result
+	result = result:gsub("%s+$", "")
+
+	if not success then
+		return cwd
+	end
+
+	return result
+end
+
+local search_root = get_git_dir_otherwise_cwd()
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -58,21 +80,77 @@ require("lazy").setup({
 			})
 		end,
 	},
+	"Zane-/cder.nvim",
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({})
+		end,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.6",
+		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
+			require("telescope").setup({
+				defaults = {
+					wrap_results = true,
+				},
+				pickers = {
+					oldfiles = {
+						initial_mode = "normal",
+					},
+				},
+				extensions = {
+					cder = {
+						dir_command = {
+							"fd",
+							"--exclude=.git/",
+							"--exclude=go/",
+							"--exclude=node_modules/",
+							"--type=d",
+							".",
+							search_root,
+						},
+						previewer_command = "eza -a --icons",
+					},
+				},
+			})
+			require("telescope").load_extension("cder")
+			require("telescope").load_extension("projects")
+
 			vim.api.nvim_create_autocmd(
 				"FileType",
 				{ pattern = "TelescopeResults", command = [[setlocal nofoldenable]] }
 			)
 		end,
 		keys = {
-			{ "<C-p>", ":lua require('telescope.builtin').builtin{}<CR>" },
-			{ "<C-j>", ":lua require('telescope.builtin').live_grep{}<CR>" },
-			{ "<C-f>", ":lua require('telescope.builtin').find_files{}<CR>" },
-			{ "<C-h>", ":lua require('telescope.builtin').oldfiles{}<CR>" },
+			{ "<C-p>", ":Telescope<CR>" },
+			{ "<C-s>", ":Telescope cder<CR>" },
+			{
+				"<C-j>",
+				function()
+					require("telescope.builtin").live_grep({
+						cwd = search_root,
+					})
+				end,
+			},
+			{
+				"<C-f>",
+				function()
+					require("telescope.builtin").find_files({
+						cwd = search_root,
+					})
+				end,
+			},
+			{
+				"<C-h>",
+				function()
+					require("telescope.builtin").oldfiles({
+						cwd = search_root,
+					})
+				end,
+			},
 			{ "<C-l>", ":lua require('telescope.builtin').buffers{}<CR>" },
 			-- // { "<C-t>", ":lua require('trouble.open_with_trouble').open_with_trouble<CR>" },
 			-- // { "<C-,>", ":lua require('trouble.open_with_trouble').open_with_trouble<CR>" },
@@ -410,20 +488,9 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {},
-		config = function()
-			require("hardtime").setup({
-				max_time = 10,
-				disabled_keys = { "<CR>", "<Del>" },
-			})
-		end,
-	},
-	{
 		"is0n/jaq-nvim",
 		keys = {
-			{ "<C-s>", ":Jaq<CR>" },
+			{ "<C-0>", ":Jaq<CR>" },
 		},
 		config = function()
 			require("jaq-nvim").setup({

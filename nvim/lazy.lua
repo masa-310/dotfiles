@@ -237,7 +237,7 @@ require("lazy").setup({
           null_ls.builtins.hover.printenv,
 
           -- custom
-          cspell.diagnostic,
+          cspell.diagnostics,
           cspell.code_action,
         },
 

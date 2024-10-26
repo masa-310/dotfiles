@@ -196,28 +196,32 @@ require("lazy").setup({
   {
     "nvimtools/none-ls.nvim",
 
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim"
+    },
+
     config = function()
       local null_ls = require("null-ls")
       local cspell = require("cspell")
 
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-      local on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-          vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-              -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-              -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
-              vim.lsp.buf.formatting_sync()
-            end,
-          })
-        end
-      end
-      -- local on_attach = function(client)
-      --   require("lsp-format").on_attach(client)
+      -- local on_attach = function(client, bufnr)
+      --   if client.supports_method("textDocument/formatting") then
+      --     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      --     vim.api.nvim_create_autocmd("BufWritePre", {
+      --       group = augroup,
+      --       buffer = bufnr,
+      --       callback = function()
+      --         -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+      --         -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+      --         vim.lsp.buf.formatting_sync()
+      --       end,
+      --     })
+      --   end
       -- end
+      local on_attach = function(client)
+        require("lsp-format").on_attach(client)
+      end
 
       null_ls.setup({
         sources = {
@@ -252,7 +256,11 @@ require("lazy").setup({
       })
     end,
   },
-  "lukas-reineke/lsp-format.nvim",
+  { "lukas-reineke/lsp-format.nvim",
+     config = function()
+       require("lsp-format").setup()
+     end,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = { "nanotee/sqls.nvim" },
@@ -264,7 +272,6 @@ require("lazy").setup({
       -- avoid performance degrading
       capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
-      require("lsp-format").setup({})
       local on_attach = function(client)
         require("lsp-format").on_attach(client)
       end

@@ -193,8 +193,53 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"nvimtools/none-ls.nvim",
+		config = function()
+			null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.code_actions.gitsigns,
+					null_ls.builtins.code_actions.gomodifytags,
+					null_ls.builtins.code_actions.impl,
+					null_ls.builtins.code_actions.statix,
+					null_ls.builtins.code_actions.ts_node_action,
+					null_ls.builtins.completion.luasnip,
+					null_ls.builtins.completion.spell,
+					null_ls.builtins.diagnostics.actionlint,
+					null_ls.builtins.diagnostics.buf,
+					null_ls.builtins.diagnostics.cfn_lint,
+					null_ls.builtins.diagnostics.checkmake,
+					null_ls.builtins.diagnostics.cmake_lint,
+					null_ls.builtins.diagnostics.codespell,
+					null_ls.builtins.diagnostics.commitlint,
+					null_ls.builtins.diagnostics.cppcheck,
+					null_ls.builtins.diagnostics.deadnix,
+					null_ls.builtins.diagnostics.dotenv_linter,
+					null_ls.builtins.diagnostics.golangci_lint,
+					null_ls.builtins.diagnostics.hadolint,
+					null_ls.builtins.diagnostics.markdownlint,
+					null_ls.builtins.diagnostics.markuplint,
+					null_ls.builtins.diagnostics.terraform_validate,
+					null_ls.builtins.formatting.alejandra,
+					null_ls.builtins.formatting.gofmt,
+					null_ls.builtins.formatting.goimports,
+					null_ls.builtins.formatting.just,
+					null_ls.builtins.formatting.mdformat,
+					null_ls.builtins.formatting.nixpkgs_fmt,
+					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.protolint,
+					null_ls.builtins.formatting.purs_tidy,
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.terraform_fmt,
+					null_ls.builtins.hover.dictionary,
+					null_ls.builtins.hover.printenv,
+				},
+			})
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "lukas-reineke/lsp-format.nvim", "creativenull/efmls-configs-nvim", "nanotee/sqls.nvim" },
+		dependencies = { "lukas-reineke/lsp-format.nvim", "nanotee/sqls.nvim" },
 		config = function()
 			local lspconfig = require("lspconfig")
 			local default_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -301,54 +346,6 @@ require("lazy").setup({
 					}
 				end,
 			})
-
-			-- efm
-			-- typescript
-			local prettier = require("efmls-configs.formatters.prettier")
-
-			-- go
-			-- local golangci_lint = require("efmls-configs.linters.golangci_lint")
-			local gofmt = require("efmls-configs.formatters.gofmt")
-
-			local purs_tidy = {
-				formatCommand = "purs-tidy format",
-				formatStdin = true,
-			}
-
-			-- lua
-			local stylua = require("efmls-configs.formatters.stylua")
-
-			-- cspell
-			local cspell = require("efmls-configs.linters.cspell")
-
-			local languages = {
-				javascript = { prettier, cspell },
-				jsx = { prettier, cspell },
-				typescript = { prettier, cspell },
-				typescriptreact = { prettier, cspell },
-				go = { gofmt, cspell },
-				lua = { stylua, cspell },
-				purescript = { purs_tidy, cspell },
-			}
-
-			local efmls_config = {
-				filetypes = vim.tbl_keys(languages),
-				settings = {
-					rootMarkers = { ".git/" },
-					languages = languages,
-				},
-				init_options = {
-					documentFormatting = true,
-					documentRangeFormatting = true,
-					codeAction = true,
-				},
-			}
-
-			lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
-				-- Pass your custom lsp config below like on_attach and capabilities
-				on_attach = on_attach,
-				capabilities = capabilities,
-			}))
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions

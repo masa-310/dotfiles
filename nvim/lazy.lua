@@ -196,44 +196,15 @@ require("lazy").setup({
   {
     "nvimtools/none-ls.nvim",
 
-    -- - ERROR gitsigns: the source "gitsigns" cannot be ran.
-    -- - ERROR gomodifytags: the source "gomodifytags" cannot be ran.
-    -- - ERROR impl: the source "impl" cannot be ran.
-    -- - ERROR statix: the command "statix" is not executable.
-    -- - ERROR ts_node_action: the source "ts_node_action" cannot be ran.
-    -- - luasnip: cannot verify if the command is an executable.
-    -- - spell: cannot verify if the command is an executable.
-    -- - ERROR actionlint: the command "actionlint" is not executable.
-    -- - ERROR buf_lint: the command "buf" is not executable.
-    -- - ERROR cfn-lint: the command "cfn-lint" is not executable.
-    -- - ERROR checkmake: the command "checkmake" is not executable.
-    -- - ERROR cmake_lint: the command "cmake-lint" is not executable.
-    -- - ERROR codespell: the command "codespell" is not executable.
-    -- - ERROR commitlint: the command "commitlint" is not executable.
-    -- - ERROR cppcheck: the command "cppcheck" is not executable.
-    -- - ERROR deadnix: the command "deadnix" is not executable.
-    -- - ERROR dotenv-linter: the command "dotenv-linter" is not executable.
-    -- - OK golangci_lint: the command "golangci-lint" is executable.
-    -- - ERROR hadolint: the command "hadolint" is not executable.
-    -- - ERROR markdownlint: the command "markdownlint" is not executable.
-    -- - ERROR markuplint: the command "markuplint" is not executable.
-    -- - OK terraform_validate: the command "terraform" is executable.
-    -- - ERROR alejandra: the command "alejandra" is not executable.
-    -- - OK gofmt: the command "gofmt" is executable.
-    -- - OK goimports: the command "goimports" is executable.
-    -- - OK just: the command "just" is executable.
-    -- - ERROR mdformat: the command "mdformat" is not executable.
-    -- - ERROR nixpkgs_fmt: the command "nixpkgs-fmt" is not executable.
-    -- - ERROR prettierd: the command "prettierd" is not executable.
-    -- - ERROR protolint: the command "protolint" is not executable.
-    -- - ERROR purs_tidy: the command "purs-tidy" is not executable.
-    -- - OK stylua: the command "stylua" is executable.
-    -- - OK terraform_fmt: the command "terraform" is executable.
-    -- - dictionary: cannot verify if the command is an executable.
-    -- - printenv: cannot verify if the command is an executable.
     config = function()
       local null_ls = require("null-ls")
       local cspell = require("cspell")
+
+      require("lsp-format").setup({})
+      local on_attach = function(client)
+        require("lsp-format").on_attach(client)
+      end
+
       null_ls.setup({
         sources = {
           null_ls.builtins.code_actions.gitsigns,
@@ -258,6 +229,8 @@ require("lazy").setup({
           cspell.diagnostic,
           cspell.code_action,
         },
+
+        on_attach = on_attach,
       })
     end,
   },

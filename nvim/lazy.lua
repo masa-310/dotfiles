@@ -162,8 +162,8 @@ require("lazy").setup({
       require("nvim-ts-autotag").setup({
         opts = {
           -- Defaults
-          enable_close = true,      -- Auto close tags
-          enable_rename = true,     -- Auto rename pairs of tags
+          enable_close = true,           -- Auto close tags
+          enable_rename = true,          -- Auto rename pairs of tags
           enable_close_on_slash = false, -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
@@ -254,6 +254,24 @@ require("lazy").setup({
             diagnostics_postprocess = function(diagnostic)
               diagnostic.severity = vim.diagnostic.severity["HINT"]
             end,
+
+            on_add_to_json = function(payload)
+              -- Includes:
+              payload.new_word
+              payload.cspell_config_path
+              payload.generator_params
+
+              -- For example, you can format the cspell config file after you add a word
+              os.execute(
+                string.format(
+                  "jq -S '.words |= sort' %s > %s.tmp && mv %s.tmp %s",
+                  payload.cspell_config_path,
+                  payload.cspell_config_path,
+                  payload.cspell_config_path,
+                  payload.cspell_config_path
+                )
+              )
+            end
           }),
           cspell.code_actions,
         },

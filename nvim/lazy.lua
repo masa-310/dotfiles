@@ -196,6 +196,8 @@ require("lazy").setup({
   {
     "nvimtools/none-ls.nvim",
 
+    dependencies = { "davidmh/cspell.nvim" },
+
     config = function()
       local null_ls = require("null-ls")
       local cspell = require("cspell")

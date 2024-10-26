@@ -194,6 +194,12 @@ require("lazy").setup({
 	},
 	"davidmh/cspell.nvim",
 	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+	{
 		"nvimtools/none-ls.nvim",
 
 		dependencies = {

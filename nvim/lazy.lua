@@ -192,10 +192,12 @@ require("lazy").setup({
 			})
 		end,
 	},
+	"davidmh/cspell.nvim",
 	{
 		"nvimtools/none-ls.nvim",
 		config = function()
-			null_ls = require("null-ls")
+			local null_ls = require("null-ls")
+			local cspell = require("cspell")
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.code_actions.gitsigns,
@@ -233,6 +235,10 @@ require("lazy").setup({
 					null_ls.builtins.formatting.terraform_fmt,
 					null_ls.builtins.hover.dictionary,
 					null_ls.builtins.hover.printenv,
+
+					-- custom
+					cspell.diagnostic,
+					cspell.code_action,
 				},
 			})
 		end,

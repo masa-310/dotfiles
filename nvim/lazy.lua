@@ -238,7 +238,7 @@ require("lazy").setup({
 
           -- custom
           cspell.diagnostics,
-          cspell.code_action,
+          cspell.code_actions,
         },
 
         on_attach = on_attach,

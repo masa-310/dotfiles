@@ -162,8 +162,8 @@ require("lazy").setup({
       require("nvim-ts-autotag").setup({
         opts = {
           -- Defaults
-          enable_close = true,           -- Auto close tags
-          enable_rename = true,          -- Auto rename pairs of tags
+          enable_close = true,      -- Auto close tags
+          enable_rename = true,     -- Auto rename pairs of tags
           enable_close_on_slash = false, -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
@@ -221,7 +221,7 @@ require("lazy").setup({
 
       null_ls.setup({
         sources = {
-          null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.code_actions.gitsign,
           null_ls.builtins.code_actions.impl,
           null_ls.builtins.completion.luasnip,
           null_ls.builtins.completion.spell,
@@ -240,7 +240,11 @@ require("lazy").setup({
           null_ls.builtins.hover.printenv,
 
           -- custom
-          cspell.diagnostics,
+          cspell.diagnostics.with({
+            diagnostics_postprocess = function(diagnostic)
+              diagnostic.severity = vim.diagnostic.severity["HINT"]
+            end,
+          }),
           cspell.code_actions,
         },
 
@@ -256,7 +260,7 @@ require("lazy").setup({
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "nanotee/sqls.nvim" },
+    dependencies = { "lukas-reineke/lsp-format.nvim", "nanotee/sqls.nvim" },
     config = function()
       local lspconfig = require("lspconfig")
       local default_capabilities = vim.lsp.protocol.make_client_capabilities()

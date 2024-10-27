@@ -257,9 +257,9 @@ require("lazy").setup({
 
             on_add_to_json = function(payload)
               -- Includes:
-              payload.new_word
-              payload.cspell_config_path
-              payload.generator_params
+              -- payload.new_word
+              -- payload.cspell_config_path
+              -- payload.generator_params
 
               -- For example, you can format the cspell config file after you add a word
               os.execute(

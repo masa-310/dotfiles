@@ -162,8 +162,8 @@ require("lazy").setup({
       require("nvim-ts-autotag").setup({
         opts = {
           -- Defaults
-          enable_close = true,           -- Auto close tags
-          enable_rename = true,          -- Auto rename pairs of tags
+          enable_close = true,      -- Auto close tags
+          enable_rename = true,     -- Auto rename pairs of tags
           enable_close_on_slash = false, -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
@@ -254,7 +254,8 @@ require("lazy").setup({
             diagnostics_postprocess = function(diagnostic)
               diagnostic.severity = vim.diagnostic.severity["HINT"]
             end,
-
+          }),
+          cspell.code_actions.with({
             on_add_to_json = function(payload)
               -- Includes:
               -- payload.new_word
@@ -271,9 +272,8 @@ require("lazy").setup({
                   payload.cspell_config_path
                 )
               )
-            end
+            end,
           }),
-          cspell.code_actions,
         },
 
         on_attach = on_attach,

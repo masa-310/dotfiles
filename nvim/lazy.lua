@@ -316,12 +316,18 @@ require("lazy").setup({
         init_options = {
           documentFormatting = false,
         },
+        flags = {
+          debounce_text_changes = 300,
+        },
       })
       lspconfig.eslint.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         init_options = {
           documentFormatting = false,
+        },
+        flags = {
+          debounce_text_changes = 300,
         },
       })
       lspconfig.tailwindcss.setup({
@@ -335,6 +341,9 @@ require("lazy").setup({
               },
             },
           },
+        },
+        flags = {
+          debounce_text_changes = 500,
         },
       })
       lspconfig.html.setup({

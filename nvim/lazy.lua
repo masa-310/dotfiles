@@ -317,14 +317,12 @@ require("lazy").setup({
           documentFormatting = false,
         },
       })
-
       lspconfig.eslint.setup({
-        on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-          })
-        end,
+        capabilities = capabilities,
+        on_attach = on_attach,
+        init_options = {
+          documentFormatting = false,
+        },
       })
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,

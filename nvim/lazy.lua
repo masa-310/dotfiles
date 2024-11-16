@@ -75,7 +75,7 @@ require("lazy").setup({
     "xiyaowong/transparent.nvim",
     lazy = false,
     priority = 1000,
-    init = function()
+    config = function()
       require("transparent").setup({
         enable = true,
       })
@@ -203,7 +203,7 @@ require("lazy").setup({
   {
     "nvimtools/none-ls.nvim",
 
-    init = function()
+    config = function()
       local null_ls = require("null-ls")
 
       local cspell = require("cspell")
@@ -227,66 +227,66 @@ require("lazy").setup({
         require("lsp-format").on_attach(client)
       end
 
-      null_ls.setup({
-        sources = {
-          null_ls.builtins.code_actions.gitsigns,
-          null_ls.builtins.code_actions.impl,
-          null_ls.builtins.completion.luasnip,
-          -- null_ls.builtins.completion.spell,
-          null_ls.builtins.diagnostics.buf,
-          null_ls.builtins.diagnostics.golangci_lint,
-          null_ls.builtins.diagnostics.terraform_validate,
-          null_ls.builtins.formatting.gofmt,
-          null_ls.builtins.formatting.goimports,
-          null_ls.builtins.formatting.just,
-          null_ls.builtins.formatting.prettier,
-          -- null_ls.builtins.formatting.protolint,
-          null_ls.builtins.formatting.purs_tidy,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.terraform_fmt,
-          null_ls.builtins.hover.dictionary,
-          null_ls.builtins.hover.printenv,
+      -- null_ls.setup({
+      --   sources = {
+      --     null_ls.builtins.code_actions.gitsigns,
+      --     null_ls.builtins.code_actions.impl,
+      --     null_ls.builtins.completion.luasnip,
+      --     -- null_ls.builtins.completion.spell,
+      --     null_ls.builtins.diagnostics.buf,
+      --     null_ls.builtins.diagnostics.golangci_lint,
+      --     null_ls.builtins.diagnostics.terraform_validate,
+      --     null_ls.builtins.formatting.gofmt,
+      --     null_ls.builtins.formatting.goimports,
+      --     null_ls.builtins.formatting.just,
+      --     null_ls.builtins.formatting.prettier,
+      --     -- null_ls.builtins.formatting.protolint,
+      --     null_ls.builtins.formatting.purs_tidy,
+      --     null_ls.builtins.formatting.stylua,
+      --     null_ls.builtins.formatting.terraform_fmt,
+      --     null_ls.builtins.hover.dictionary,
+      --     null_ls.builtins.hover.printenv,
 
-          -- custom
-          cspell.diagnostics.with({
-            method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-            diagnostics_postprocess = function(diagnostic)
-              diagnostic.severity = vim.diagnostic.severity["HINT"]
-            end,
-          }),
-          cspell.code_actions.with({
-            on_add_to_json = function(payload)
-              -- Includes:
-              -- payload.new_word
-              -- payload.cspell_config_path
-              -- payload.generator_params
+      --     -- custom
+      --     cspell.diagnostics.with({
+      --       method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+      --       diagnostics_postprocess = function(diagnostic)
+      --         diagnostic.severity = vim.diagnostic.severity["HINT"]
+      --       end,
+      --     }),
+      --     cspell.code_actions.with({
+      --       on_add_to_json = function(payload)
+      --         -- Includes:
+      --         -- payload.new_word
+      --         -- payload.cspell_config_path
+      --         -- payload.generator_params
 
-              -- For example, you can format the cspell config file after you add a word
-              os.execute(
-                string.format(
-                  "jq -S '.words |= sort' %s > %s.tmp && mv %s.tmp %s",
-                  payload.cspell_config_path,
-                  payload.cspell_config_path,
-                  payload.cspell_config_path,
-                  payload.cspell_config_path
-                )
-              )
-            end,
-            on_add_to_dictionary = function(payload)
-              -- Includes:
-              -- payload.new_word
-              -- payload.cspell_config_path
-              -- payload.generator_params
-              -- payload.dictionary_path
+      --         -- For example, you can format the cspell config file after you add a word
+      --         os.execute(
+      --           string.format(
+      --             "jq -S '.words |= sort' %s > %s.tmp && mv %s.tmp %s",
+      --             payload.cspell_config_path,
+      --             payload.cspell_config_path,
+      --             payload.cspell_config_path,
+      --             payload.cspell_config_path
+      --           )
+      --         )
+      --       end,
+      --       on_add_to_dictionary = function(payload)
+      --         -- Includes:
+      --         -- payload.new_word
+      --         -- payload.cspell_config_path
+      --         -- payload.generator_params
+      --         -- payload.dictionary_path
 
-              -- For example, you can sort the dictionary after adding a word
-              os.execute(string.format("sort %s -o %s", payload.dictionary_path, payload.dictionary_path))
-            end,
-          }),
-        },
+      --         -- For example, you can sort the dictionary after adding a word
+      --         os.execute(string.format("sort %s -o %s", payload.dictionary_path, payload.dictionary_path))
+      --       end,
+      --     }),
+      --   },
 
-        on_attach = on_attach,
-      })
+      --   on_attach = on_attach,
+      -- })
     end,
   },
   {

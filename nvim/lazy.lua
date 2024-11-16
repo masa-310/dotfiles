@@ -447,6 +447,7 @@ require("lazy").setup({
       })
     end,
   },
+  "NStefan002/wormhole.nvim",
   {
     "stevearc/oil.nvim",
     keys = {

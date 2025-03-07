@@ -19,7 +19,7 @@ config.font_size = 13.0
 config.hide_tab_bar_if_only_one_tab = true
 
 -- config.window_background_opacity = 0.80
-config.window.padding = {
+config.window_padding = {
 	left = 0;
 	right = 0;
 	top = 0;

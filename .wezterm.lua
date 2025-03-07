@@ -12,12 +12,19 @@ end
 
 config.color_scheme = "Cobalt Neon"
 config.color_scheme = "Molokai"
--- config.window_background_opacity = 0.80
 config.front_end = "WebGpu"
 config.enable_wayland = false
 config.font = wezterm.font("Inconsolata Nerd Font Mono")
 config.font_size = 13.0
 config.hide_tab_bar_if_only_one_tab = true
+
+-- config.window_background_opacity = 0.80
+config.window.padding = {
+	left = 0;
+	right = 0;
+	top = 0;
+	bottom = 0;
+}
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }

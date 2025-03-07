@@ -13,7 +13,7 @@ end
 config.color_scheme = "Cobalt Neon"
 -- config.color_scheme = "Molokai"
 config.window_background_opacity = 0.80
-config.front_end = "WebGpu"
+config.front_end = "OpenGL"
 config.enable_wayland = false
 config.font = wezterm.font("Inconsolata Nerd Font Mono")
 config.font_size = 13.0
@@ -46,6 +46,26 @@ config.keys = {
 		key = "p",
 		mods = "LEADER",
 		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	{
+		key = "l",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "h",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "k",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "j",
+		mods = "LEADER",
+		action = wezterm.action.ActivatePaneDirection("Down"),
 	},
 	-- Send "CTRL-B" to the terminal when pressing CTRL-B, CTRL-B
 	{

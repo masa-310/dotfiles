@@ -11,9 +11,9 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "Cobalt Neon"
--- config.color_scheme = "Molokai"
-config.window_background_opacity = 0.80
-config.front_end = "OpenGL"
+config.color_scheme = "Molokai"
+-- config.window_background_opacity = 0.80
+config.front_end = "WebGpu"
 config.enable_wayland = false
 config.font = wezterm.font("Inconsolata Nerd Font Mono")
 config.font_size = 13.0

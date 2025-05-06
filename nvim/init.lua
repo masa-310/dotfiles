@@ -980,6 +980,61 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
+  -- ================== own plugins ========================
+	"github/copilot.vim",
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				opts = {
+					-- Defaults
+					enable_close = true, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = false, -- Auto close on trailing </
+				},
+				-- Also override individual filetype configs, these take priority.
+				-- Empty by default, useful if one of the "opts" global settings
+				-- doesn't work well in a specific filetype
+				-- per_filetype = {
+				-- 	["html"] = {
+				-- 		enable_close = false,
+				-- 	},
+				-- },
+			})
+		end,
+	},
+	{
+		"stevearc/oil.nvim",
+		keys = {
+			{ "<C-e>", ":Oil --float<CR>" },
+		},
+		config = function()
+			require("oil").setup({
+				lsp_file_methods = {
+					enabled = true,
+					timeout_ms = 1000,
+					autosave_changes = true,
+				},
+				view_options = {
+					show_hidden = true,
+				},
+				float = {
+					border = "none",
+
+					winhl = "Normal",
+					borderhl = "FloatBorder",
+
+					winblend = 0,
+
+					height = 0.8,
+					width = 0.8,
+					x = 0.5,
+					y = 0.5,
+				},
+			})
+		end,
+	},
+
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.

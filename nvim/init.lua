@@ -418,8 +418,8 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>k', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+      -- vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = '[S]earch [H]elp' })
+      vim.keymap.set('n', '<leader>h', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>s', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>w', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -648,7 +648,7 @@ require('lazy').setup({
       }
       -- Show all diagnostics on current line in floating window
       vim.api.nvim_set_keymap(
-        'n', '<Leader>o', ':lua vim.diagnostic.open_float({ width = 300 })<CR>',
+        'n', '<Leader>k', ':lua vim.diagnostic.open_float({ width = 300 })<CR>',
         { noremap = true, silent = true }
       )
 

@@ -648,7 +648,7 @@ require('lazy').setup({
       }
       -- Show all diagnostics on current line in floating window
       vim.api.nvim_set_keymap(
-        'n', '<Leader>k', ':lua vim.diagnostic.open_float({ width = 300 })<CR>',
+        'n', '<Leader>k', ':lua vim.diagnostic.open_float({ width = 80})<CR>',
         { noremap = true, silent = true }
       )
 

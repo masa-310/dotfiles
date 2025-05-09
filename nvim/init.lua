@@ -938,7 +938,20 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup {
+        mappings = {
+          add = 'ms', -- Add surrounding in Normal and Visual modes
+          delete = 'md', -- Delete surrounding
+          find = 'mf', -- Find surrounding (to the right)
+          find_left = 'mF', -- Find surrounding (to the left)
+          highlight = 'mh', -- Highlight surrounding
+          replace = 'mr', -- Replace surrounding
+          update_n_lines = 'mn', -- Update `n_lines`
+
+          suffix_last = 'l', -- Suffix to search with "prev" method
+          suffix_next = 'n', -- Suffix to search with "next" method
+        }
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -1039,6 +1052,12 @@ require('lazy').setup({
 			})
 		end,
 	},
+  {
+    "ggandor/leap.nvim",
+     config = function()
+      require("leap").add_default_mappings()
+     end
+  }
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and

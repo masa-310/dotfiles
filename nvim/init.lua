@@ -705,6 +705,9 @@ require('lazy').setup({
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.golangci_lint_ls.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.elmls.setup({
 				capabilities = capabilities,
 			})

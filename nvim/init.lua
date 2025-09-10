@@ -768,7 +768,8 @@ require('lazy').setup({
       {
         '<leader>F',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          -- require('conform').format { async = true, lsp_format = 'fallback' }
+          vim.lsp.buf.format()
         end,
         mode = '',
         desc = '[F]ormat buffer',

@@ -647,11 +647,7 @@ require('lazy').setup({
         },
       }
       -- Show all diagnostics on current line in floating window
-      vim.api.nvim_set_keymap(
-        'n', '<Leader>k', ':lua vim.diagnostic.open_float({ width = 80})<CR>',
-        { noremap = true, silent = true }
-      )
-
+      vim.api.nvim_set_keymap('n', '<Leader>k', ':lua vim.diagnostic.open_float({ width = 80})<CR>', { noremap = true, silent = true })
 
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -660,103 +656,102 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       -- ================== own config ===================================================
-			local lspconfig = require("lspconfig")
+      local lspconfig = require 'lspconfig'
 
-      lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-				init_options = {
-					documentFormatting = false,
-				},
-				flags = {
-					debounce_text_changes = 300,
-				},
-			})
-			lspconfig.eslint.setup({
-				capabilities = capabilities,
-				init_options = {
-					documentFormatting = false,
-				},
-				flags = {
-					debounce_text_changes = 300,
-				},
-			})
-			lspconfig.tailwindcss.setup({
-				capabilities = capabilities,
-				settings = {
-					tailwindCSS = {
-						experimental = {
-							classRegex = {
-								{ "tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-							},
-						},
-					},
-				},
-				flags = {
-					debounce_text_changes = 500,
-				},
-			})
-			lspconfig.typos_lsp.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.html.setup({
-				capabilities = capabilities,
-			})
+      lspconfig.ts_ls.setup {
+        capabilities = capabilities,
+        init_options = {
+          documentFormatting = false,
+        },
+        flags = {
+          debounce_text_changes = 300,
+        },
+      }
+      lspconfig.eslint.setup {
+        capabilities = capabilities,
+        init_options = {
+          documentFormatting = false,
+        },
+        flags = {
+          debounce_text_changes = 300,
+        },
+      }
+      lspconfig.tailwindcss.setup {
+        capabilities = capabilities,
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                { 'tv\\(([^)]*)\\)', '["\'`]([^"\'`]*).*?["\'`]' },
+              },
+            },
+          },
+        },
+        flags = {
+          debounce_text_changes = 500,
+        },
+      }
+      lspconfig.typos_lsp.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.html.setup {
+        capabilities = capabilities,
+      }
 
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.golangci_lint_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.elmls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.hls.setup({
-				filetypes = { "haskell", "lhaskell", "cabal" },
-				capabilities = capabilities,
-			})
-			lspconfig.ccls.setup({
-				filetypes = { "c", "cpp" },
-				capabilities = capabilities,
-			})
-			lspconfig.purescriptls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.buf_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.metals.setup({
-				capabilities = capabilities,
-				filetypes = { "scala", "sbt" },
-			})
-			lspconfig.sqls.setup({
-				cmd = { "sqls" },
-				on_attach = function(client, bufnr)
-					require("sqls").on_attach(client, bufnr)
-					local bufmap = vim.api.nvim_buf_set_keymap
-					bufmap(bufnr, "n", "<LocalLeader>ss", "<cmd>SqlsExecuteQuery<CR>", { silent = true })
-					bufmap(bufnr, "v", "<LocalLeader>ss", "<cmd>SqlsExecuteQuery<CR>", { silent = true })
-				end,
-				capabilities = capabilities,
-				single_file_support = false,
-				on_new_config = function(new_config, new_rootdir)
-					new_config.cmd = {
-						"sqls",
-						"-config",
-						new_rootdir .. "/.sqls.yml",
-					}
-				end,
-			})
-
+      lspconfig.gopls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.golangci_lint_ls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.elmls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.rust_analyzer.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.hls.setup {
+        filetypes = { 'haskell', 'lhaskell', 'cabal' },
+        capabilities = capabilities,
+      }
+      lspconfig.ccls.setup {
+        filetypes = { 'c', 'cpp' },
+        capabilities = capabilities,
+      }
+      lspconfig.purescriptls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.buf_ls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.pyright.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.metals.setup {
+        capabilities = capabilities,
+        filetypes = { 'scala', 'sbt' },
+      }
+      lspconfig.sqls.setup {
+        cmd = { 'sqls' },
+        on_attach = function(client, bufnr)
+          require('sqls').on_attach(client, bufnr)
+          local bufmap = vim.api.nvim_buf_set_keymap
+          bufmap(bufnr, 'n', '<LocalLeader>ss', '<cmd>SqlsExecuteQuery<CR>', { silent = true })
+          bufmap(bufnr, 'v', '<LocalLeader>ss', '<cmd>SqlsExecuteQuery<CR>', { silent = true })
+        end,
+        capabilities = capabilities,
+        single_file_support = false,
+        on_new_config = function(new_config, new_rootdir)
+          new_config.cmd = {
+            'sqls',
+            '-config',
+            new_rootdir .. '/.sqls.yml',
+          }
+        end,
+      }
     end,
   },
 
@@ -768,8 +763,7 @@ require('lazy').setup({
       {
         '<leader>F',
         function()
-          -- require('conform').format { async = true, lsp_format = 'fallback' }
-          vim.lsp.buf.format()
+          require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -793,16 +787,16 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { "goimports", "gofmt"},
+        go = { 'goimports', 'gofmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { "prettierd", "prettier", stop_after_first = true },
-        tsx = { "prettierd", "prettier", stop_after_first = true },
-        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        tsx = { 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -866,8 +860,8 @@ require('lazy').setup({
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
-        ["<CR>"] = { 'select_and_accept', 'fallback'},
-        ["<Tab>"] = {'fallback'},
+        ['<CR>'] = { 'select_and_accept', 'fallback' },
+        ['<Tab>'] = { 'fallback' },
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
@@ -960,7 +954,7 @@ require('lazy').setup({
 
           suffix_last = 'l', -- Suffix to search with "prev" method
           suffix_next = 'n', -- Suffix to search with "next" method
-        }
+        },
       }
 
       -- Simple and easy statusline.
@@ -1009,64 +1003,65 @@ require('lazy').setup({
   },
 
   -- ================== own plugins ========================
-	"github/copilot.vim",
-	{
-		"windwp/nvim-ts-autotag",
-		config = function()
-			require("nvim-ts-autotag").setup({
-				opts = {
-					-- Defaults
-					enable_close = true, -- Auto close tags
-					enable_rename = true, -- Auto rename pairs of tags
-					enable_close_on_slash = false, -- Auto close on trailing </
-				},
-				-- Also override individual filetype configs, these take priority.
-				-- Empty by default, useful if one of the "opts" global settings
-				-- doesn't work well in a specific filetype
-				-- per_filetype = {
-				-- 	["html"] = {
-				-- 		enable_close = false,
-				-- 	},
-				-- },
-			})
-		end,
-	},
-	{
-		"stevearc/oil.nvim",
-		keys = {
-			{ "<C-e>", ":Oil --float<CR>" },
-		},
-		config = function()
-			require("oil").setup({
-				lsp_file_methods = {
-					enabled = true,
-					timeout_ms = 1000,
-					autosave_changes = true,
-				},
-				view_options = {
-					show_hidden = true,
-				},
-				float = {
-					border = "none",
-
-					winhl = "Normal",
-					borderhl = "FloatBorder",
-
-					winblend = 0,
-
-					height = 0.8,
-					width = 0.8,
-					x = 0.5,
-					y = 0.5,
-				},
-			})
-		end,
-	},
+  'github/copilot.vim',
   {
-    "ggandor/leap.nvim",
-     config = function()
-      require("leap").add_default_mappings()
-     end
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup {
+        opts = {
+          -- Defaults
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = false, -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        -- per_filetype = {
+        -- 	["html"] = {
+        -- 		enable_close = false,
+        -- 	},
+        -- },
+      }
+    end,
+  },
+  {
+    'stevearc/oil.nvim',
+    keys = {
+      { '<C-e>', ':Oil --float<CR>' },
+    },
+    config = function()
+      require('oil').setup {
+        lsp_file_methods = {
+          enabled = true,
+          timeout_ms = 1000,
+          autosave_changes = true,
+        },
+        view_options = {
+          show_hidden = true,
+        },
+        float = {
+          border = 'none',
+
+          winhl = 'Normal',
+          borderhl = 'FloatBorder',
+
+          winblend = 0,
+
+          height = 0.8,
+          width = 0.8,
+          x = 0.5,
+          y = 0.5,
+        },
+      }
+    end,
+  },
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
+      vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
+    end,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the

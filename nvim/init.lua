@@ -656,6 +656,7 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       -- ================== own config ===================================================
+      vim.lsp.enable('ts_ls')
       vim.lsp.config('ts_ls', {
         capabilities = capabilities,
         init_options = {
@@ -665,6 +666,7 @@ require('lazy').setup({
           debounce_text_changes = 300,
         },
       })
+      vim.lsp.enable('eslint')
       vim.lsp.config('eslint', {
         capabilities = capabilities,
         init_options = {
@@ -674,6 +676,7 @@ require('lazy').setup({
           debounce_text_changes = 300,
         },
       })
+      vim.lsp.enable('tailwindcss')
       vim.lsp.config('tailwindcss', {
         capabilities = capabilities,
         settings = {
@@ -689,49 +692,63 @@ require('lazy').setup({
           debounce_text_changes = 500,
         },
       })
+      vim.lsp.enable('typos_lsp')
       vim.lsp.config('typos_lsp', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('html')
       vim.lsp.config('html', {
         capabilities = capabilities,
       })
 
+      vim.lsp.enable('gopls')
       vim.lsp.config('gopls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('golangci_lint_ls')
       vim.lsp.config('golangci_lint_ls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('elmls')
       vim.lsp.config('elmls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('rust_analyzer')
       vim.lsp.config('rust_analyzer', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('lua_ls')
       vim.lsp.config('lua_ls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('hls')
       vim.lsp.config('hls', {
         filetypes = { 'haskell', 'lhaskell', 'cabal' },
         capabilities = capabilities,
       })
+      vim.lsp.enable('ccls')
       vim.lsp.config('ccls', {
         filetypes = { 'c', 'cpp' },
         capabilities = capabilities,
       })
+      vim.lsp.enable('purescriptls')
       vim.lsp.config('purescriptls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('buf_ls')
       vim.lsp.config('buf_ls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('pyright')
       vim.lsp.config('pyright', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('metals')
       vim.lsp.config('metals', {
         capabilities = capabilities,
         filetypes = { 'scala', 'sbt' },
       })
+      vim.lsp.enable('sqls')
       vim.lsp.config('sqls', {
         cmd = { 'sqls' },
         on_attach = function(client, bufnr)

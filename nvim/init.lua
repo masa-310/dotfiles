@@ -656,9 +656,7 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       -- ================== own config ===================================================
-      local lspconfig = vim.lsp.config
-
-      lspconfig.ts_ls.setup {
+      vim.lsp.config('ts_ls', {
         capabilities = capabilities,
         init_options = {
           documentFormatting = false,
@@ -666,8 +664,8 @@ require('lazy').setup({
         flags = {
           debounce_text_changes = 300,
         },
-      }
-      lspconfig.eslint.setup {
+      })
+      vim.lsp.config('eslint', {
         capabilities = capabilities,
         init_options = {
           documentFormatting = false,
@@ -675,8 +673,8 @@ require('lazy').setup({
         flags = {
           debounce_text_changes = 300,
         },
-      }
-      lspconfig.tailwindcss.setup {
+      })
+      vim.lsp.config('tailwindcss', {
         capabilities = capabilities,
         settings = {
           tailwindCSS = {
@@ -690,51 +688,51 @@ require('lazy').setup({
         flags = {
           debounce_text_changes = 500,
         },
-      }
-      lspconfig.typos_lsp.setup {
+      })
+      vim.lsp.config('typos_lsp', {
         capabilities = capabilities,
-      }
-      lspconfig.html.setup {
+      })
+      vim.lsp.config('html', {
         capabilities = capabilities,
-      }
+      })
 
-      lspconfig.gopls.setup {
+      vim.lsp.config('gopls', {
         capabilities = capabilities,
-      }
-      lspconfig.golangci_lint_ls.setup {
+      })
+      vim.lsp.config('golangci_lint_ls', {
         capabilities = capabilities,
-      }
-      lspconfig.elmls.setup {
+      })
+      vim.lsp.config('elmls', {
         capabilities = capabilities,
-      }
-      lspconfig.rust_analyzer.setup {
+      })
+      vim.lsp.config('rust_analyzer', {
         capabilities = capabilities,
-      }
-      lspconfig.lua_ls.setup {
+      })
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
-      }
-      lspconfig.hls.setup {
+      })
+      vim.lsp.config('hls', {
         filetypes = { 'haskell', 'lhaskell', 'cabal' },
         capabilities = capabilities,
-      }
-      lspconfig.ccls.setup {
+      })
+      vim.lsp.config('ccls', {
         filetypes = { 'c', 'cpp' },
         capabilities = capabilities,
-      }
-      lspconfig.purescriptls.setup {
+      })
+      vim.lsp.config('purescriptls', {
         capabilities = capabilities,
-      }
-      lspconfig.buf_ls.setup {
+      })
+      vim.lsp.config('buf_ls', {
         capabilities = capabilities,
-      }
-      lspconfig.pyright.setup {
+      })
+      vim.lsp.config('pyright', {
         capabilities = capabilities,
-      }
-      lspconfig.metals.setup {
+      })
+      vim.lsp.config('metals', {
         capabilities = capabilities,
         filetypes = { 'scala', 'sbt' },
-      }
-      lspconfig.sqls.setup {
+      })
+      vim.lsp.config('sqls', {
         cmd = { 'sqls' },
         on_attach = function(client, bufnr)
           require('sqls').on_attach(client, bufnr)
@@ -751,7 +749,7 @@ require('lazy').setup({
             new_rootdir .. '/.sqls.yml',
           }
         end,
-      }
+      })
     end,
   },
 

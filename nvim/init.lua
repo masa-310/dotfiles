@@ -656,7 +656,7 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       -- ================== own config ===================================================
-      local lspconfig = require 'lspconfig'
+      local lspconfig = vim.lsp.config
 
       lspconfig.ts_ls.setup {
         capabilities = capabilities,

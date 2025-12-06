@@ -1078,6 +1078,14 @@ require('lazy').setup({
       vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
     end,
   },
+  {
+    'joshuavial/aider.nvim',
+     opts = {
+      auto_manage_context = true,
+      default_bindings = true,
+      debug = false,
+    }
+  }
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
